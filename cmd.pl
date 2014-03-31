@@ -1,16 +1,9 @@
 #! /usr/bin/perl
-$numArgs = $#ARGV + 1;
-
 my $devbox_domain_name = `cat ~/.boost/devbox_domain_name`;
 chomp($devbox_domain_name);
 
 my $user_name = `cat ~/.boost/user_name`;
 chomp($user_name);
-
-
-if ($numArgs == 0) {
-    print "No command was give.\n";
-}
 
 if ($ARGV[0] eq 'kv') {
     system('ssh root@'.get_server('kv'));
