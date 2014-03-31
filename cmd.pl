@@ -13,7 +13,7 @@ if ($numArgs == 0) {
 }
 
 if ($ARGV[0] eq 'kv') {
-    system('ssh root@'.$devbox_domain_name);
+    system('ssh root@'.get_server('kv'));
 }
 
 if ($ARGV[0] eq 'shr') {
@@ -87,7 +87,7 @@ sub get_server {
     my $param = shift;
 
     if (not $param or $param eq 'kv') {
-        return $devbox_domain_name;
+        return $user_name.'.'.$devbox_domain_name;
     }
 
     if ($param !~ /\./) {

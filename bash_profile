@@ -2,7 +2,7 @@ export PATH="$PATH:/Users/kaveh/perl5/perlbrew/bin/:/Applications/Sublime Text.a
 
 export PERL5LIB=~/perl5/lib/perl5
 
-alias c="perl /Users/kaveh/archive/macboost/cmd.pl"
+alias c="perl /Users/kaveh/archive/boost/cmd.pl"
 alias bom='cd ~/Office/bom'
 alias gg="c gg"
 alias ff="c ff"
