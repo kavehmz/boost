@@ -1,4 +1,5 @@
 #! /usr/bin/perl
+
 my $devbox_domain_name = `cat ~/.boost/devbox_domain_name`;
 chomp($devbox_domain_name);
 
@@ -19,6 +20,7 @@ if ($ARGV[0] eq 'sh') {
 
 if ($ARGV[0] eq 'bsync') {
     system('rsync -va --delete /Users/'.$user_name.'/Office/bom/ root@'.$devbox_domain_name.':/home/git/bom');
+    system('ssh root@'.$devbox_domain_name.' \'chown nobody:nogroup /home/git/bom -R\'');
 }
 
 if ($ARGV[0] eq 'apr') {
@@ -49,10 +51,10 @@ if ($ARGV[0] eq 'die') {
 }
 
 if ($ARGV[0] eq 'gg') {
-    system( 'git grep -n '
-          . $ARGV[1]
-          . '  | perl -e \'my $i=1; while (<>) {$_ =~ s/([^:]+):(\d+):(.*)/$1:$2 $3/;print "-",($i++)," $_"}\'  | tee /tmp/last_gg_list  | grep --color=always '
-          . $ARGV[1]
+    system( 'git grep -in '
+          . '"'.$ARGV[1].'"'
+          . '  | perl -e \'my $i=1; while (<>) {$_ =~ s/([^:]+):(\d+):(.*)/$1:$2 $3/;print "-",($i++)," $_"}\'  | tee /tmp/last_gg_list  | grep -i --color=always '
+          . '"'.$ARGV[1].'"'
           . '  | less -FRX');
 }
 
@@ -69,10 +71,10 @@ if ($ARGV[0] eq 'ec') {
 }
 
 if ($ARGV[0] eq 'ff') {
-    system( 'find ./  | grep "'
-          . $ARGV[1]
-          . '"  | perl -e \'my $i=1; while (<>) {print "-",($i++)," $_"}\'  | tee /tmp/last_gg_list  | grep --color=always "'
-          . $ARGV[1]
+    system( 'find ./  | grep -i "'
+          . '"'.$ARGV[1].'"'
+          . '"  | perl -e \'my $i=1; while (<>) {print "-",($i++)," $_"}\'  | tee /tmp/last_gg_list  | grep -i --color=always "'
+          . '"'.$ARGV[1].'"'
           . '" | less -FRX');
 }
 
@@ -80,7 +82,7 @@ sub get_server {
     my $param = shift;
 
     if (not $param or $param eq 'kv') {
-        return $user_name.'.'.$devbox_domain_name;
+        return $devbox_domain_name;
     }
 
     if ($param !~ /\./) {
