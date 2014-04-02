@@ -25,12 +25,6 @@ if ($ARGV[0] eq 'bsync') {
           . $devbox_domain_name
           . ' \'chown nobody:nogroup /home/git/bom -R & /etc/init.d/rmg_apache restart & /etc/init.d/rmg_nginx_proxy restart & cd /home/git/bom;make static & /etc/init.d/bom_web restart & /etc/init.d/bom_webapi restart\''
     );
-#    system('ssh root@'.$devbox_domain_name.' \'chown nobody:nogroup /home/git/bom -R\'');
-#    system('ssh root@'.$devbox_domain_name.' \'/etc/init.d/rmg_apache restart\'');
-#    system('ssh root@'.$devbox_domain_name.' \'/etc/init.d/rmg_nginx_proxy restart\'');
-#    system('ssh root@'.$devbox_domain_name.' \'cd /home/git/bom;make static\'');
-#    system('ssh root@'.$devbox_domain_name.' \'/etc/init.d/bom_web restart\'');
-#    system('ssh root@'.$devbox_domain_name.' \'/etc/init.d/bom_webapi restart\'');
 }
 
 if ($ARGV[0] eq 'apr') {
