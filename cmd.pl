@@ -93,7 +93,7 @@ sub get_server {
     }
 
     if ($param !~ /\./) {
-        my $cmd    = 'select i in `grep "' . $param . '" ~/.boost/subdomain_list`; do echo $i;break;done';
+        my $cmd    = 'select i in `grep "' . $param . '" ~/.boost/subdomain_list|grep -v drac`; do echo $i;break;done';
         my $domain = `$cmd`;
         chomp($domain);
 
