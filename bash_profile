@@ -9,6 +9,13 @@ alias ff="c ff"
 alias ec="c ec"
 alias shr="c shr"
 alias sh="c sh"
+alias bsync="c bsync"
+alias kv="c kv"
+
+alias gc="git clean -df"
+alias gd="git diff"
+alias gs="git status"
+alias gdw="git diff --word-diff"
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
