@@ -9,13 +9,19 @@ alias ff="c ff"
 alias ec="c ec"
 alias shr="c shr"
 alias sh="c sh"
-alias bsync="c bsync"
+alias bs="c bsync"
 alias kv="c kv"
 
-alias gc="git clean -df"
+alias gcls="git clean -df"
 alias gd="git diff"
 alias gs="git status"
 alias gdw="git diff --word-diff"
+alias gp="git push origin HEAD"
+alias gf="git fetch"
+alias gfm="git fetch;git merge --no-ff origin/master"
+alias gr="git rebase -p origin/HEAD"
+alias gc="git commit -a -m"
+
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
