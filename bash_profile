@@ -18,10 +18,10 @@ alias gs="git status"
 alias gdw="git diff --word-diff"
 alias gp="git push origin HEAD"
 alias gf="git fetch"
-alias gfm="git fetch;git merge --no-ff origin/master"
+alias gm="git merge --no-ff origin/master"
 alias gr="git rebase -p origin/HEAD"
 alias gc="git commit"
-
+alias gl="git log"
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
