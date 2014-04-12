@@ -20,7 +20,7 @@ alias gp="git push origin HEAD"
 alias gf="git fetch"
 alias gfm="git fetch;git merge --no-ff origin/master"
 alias gr="git rebase -p origin/HEAD"
-alias gc="git commit -a -m"
+alias gc="git commit"
 
 
 if [ -f ~/.git-completion.bash ]; then
