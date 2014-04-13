@@ -12,18 +12,27 @@ alias sh="c sh"
 alias bs="c bsync"
 alias kv="c kv"
 
-alias gcls="git clean -df"
-alias gd="git diff"
-alias gs="git status"
-alias gdw="git diff --word-diff"
-alias gp="git push origin HEAD"
-alias gf="git fetch"
-alias gm="git merge --no-ff origin/master"
-alias gr="git rebase -p origin/HEAD"
-alias gc="git commit"
-alias gl="git log"
+alias g=git
+
+git config --global alias.co checkout
+git config --global alias.c commit
+git config --global alias.d diff
+git config --global alias.dw "diff --word-diff"
+git config --global alias.cls "clean -df"
+git config --global alias.s "status"
+git config --global alias.f "fetch"
+git config --global alias.m "merge --no-ff origin/master"
+git config --global alias.p "push origin HEAD"
+git config --global alias.r "rebase -p origin/HEAD"
+
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
+if [ -f ~/.git-prompt.sh ]; then
+  source ~/.git-prompt.sh
+  PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+fi
+
+complete -o default -o nospace -F _git g
