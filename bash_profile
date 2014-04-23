@@ -14,14 +14,17 @@ alias kv="c kv"
 
 alias g=git
 
-git config --global alias.co checkout
-git config --global alias.c commit
+git config --global alias.c checkout
+git config --global alias.cam commit -am
+git config --global alias.cm commit -m
 git config --global alias.d diff
+git config --global alias.a add
+git config --global alias.b branch
 git config --global alias.dw "diff --word-diff"
 git config --global alias.cls "clean -df"
 git config --global alias.s "status"
 git config --global alias.f "fetch"
-git config --global alias.m "merge --no-ff origin/master"
+git config --global alias.m "merge --no-ff"
 git config --global alias.p "push origin HEAD"
 git config --global alias.r "rebase -p origin/HEAD"
 
