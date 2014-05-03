@@ -11,7 +11,7 @@ alias shr="c shr"
 alias sh="c sh"
 alias bs="c bsync"
 alias kv="c kv"
-
+alias sf="c syncfile"
 alias g=git
 
 git config --global alias.c checkout

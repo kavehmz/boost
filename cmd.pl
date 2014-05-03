@@ -18,6 +18,12 @@ if ($ARGV[0] eq 'sh') {
     system('ssh ' . $user_name . '@' . get_server($ARGV[1]));
 }
 
+
+if ($ARGV[0] eq 'syncfile') {
+    system('scp ' . $ARGV[1] . ' root@' . get_server('kv') . ':/home/git/bom/'.$ARGV[1]);
+}
+
+
 if ($ARGV[0] eq 'bsync') {
     system('rsync -va --delete /Users/' . $user_name . '/Office/bom/ root@' . $devbox_domain_name . ':/home/git/bom');
 
