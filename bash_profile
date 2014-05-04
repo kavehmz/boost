@@ -26,8 +26,8 @@ git config --global alias.s "status"
 git config --global alias.f "fetch"
 git config --global alias.m "merge --no-ff"
 git config --global alias.p "push origin HEAD"
-git config --global alias.r "rebase -p origin/HEAD"
-
+git config --global alias.r "rebase -p origin/ORIG_HEAD"
+git config --global alias.rst "reset --hard origin/ORIG_HEAD"
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
