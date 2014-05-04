@@ -1,6 +1,6 @@
 {
+	"caret_style": "smooth",
 	"color_scheme": "Packages/User/KMZBlackboard.tmTheme",
 	"font_size": 12,
-	"wide_caret": true,
-	"caret_style": "smooth",
+	"wide_caret": true
 }
