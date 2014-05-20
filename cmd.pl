@@ -29,8 +29,9 @@ if ($ARGV[0] eq 'bsync') {
 
     system( 'ssh root@'
           . $devbox_domain_name
-          . ' \'chown nobody:nogroup /home/git/bom -R &&  ./bin/rose_generation "test" regentmarkets --all && /etc/init.d/rmg_apache restart && /etc/init.d/rmg_nginx_proxy restart && cd /home/git/bom;make static && /etc/init.d/bom_web restart && /etc/init.d/bom_webapi restart\''
+          . ' \'chown nobody:nogroup /home/git/bom -R && make -C lib orm_files && /etc/init.d/rmg_apache restart && /etc/init.d/rmg_nginx_proxy restart && cd /home/git/bom;make static && /etc/init.d/bom_web restart && /etc/init.d/bom_webapi restart\''
     );
+
 }
 
 if ($ARGV[0] eq 'apr') {
