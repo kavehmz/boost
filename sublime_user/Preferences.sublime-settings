@@ -1,8 +1,8 @@
 {
 	"caret_style": "smooth",
 	"color_scheme": "Packages/User/KMZBlackboard.tmTheme",
-	"font_face": "Source Code Pro ExtraLight",
-	"font_size": 12,
+	"font_face": "Source Code Pro",
+	"font_size": 14,
 	"ignored_packages":
 	[
 		"Vintage"
