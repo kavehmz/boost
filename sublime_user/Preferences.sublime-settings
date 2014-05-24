@@ -1,5 +1,8 @@
 {
 	"caret_style": "smooth",
+	"highlight_line": true,
+	"find_selected_text": true,
+	"bold_folder_labels": true,
 	"color_scheme": "Packages/User/KMZBlackboard.tmTheme",
 	"font_face": "Source Code Pro",
 	"font_size": 14,
