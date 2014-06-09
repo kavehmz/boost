@@ -10,6 +10,7 @@ alias ec="c ec"
 alias shr="c shr"
 alias sh="c sh"
 alias sb="c bsync"
+alias bs="c bsync"
 alias kv="c kv"
 alias sf="c syncfile"
 alias g=git
