@@ -98,6 +98,11 @@ sub get_server {
     if (not $param or $param eq 'kv') {
         return $devbox_domain_name;
     }
+    my $number_of_domains = `grep "$param" ~/.boost/subdomain_list|grep -v drac|wc -l|tr -d ' '`;
+    chomp($number_of_domains);
+    if ($number_of_domains eq 1) {
+        return `grep "$param" ~/.boost/subdomain_list|grep -v drac`;
+    }
 
     if ($param !~ /\./) {
         my $cmd    = 'select i in `grep "' . $param . '" ~/.boost/subdomain_list|grep -v drac`; do echo $i;break;done';
