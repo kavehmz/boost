@@ -4,6 +4,7 @@ export PERL5LIB=~/perl5/lib/perl5
 
 alias c="perl /Users/kaveh/archive/boost/cmd.pl"
 alias bom='cd ~/Office/bom'
+alias ch='cd ~/Office/chef'
 alias gg="c gg"
 alias ff="c ff"
 alias ec="c ec"
@@ -40,3 +41,8 @@ if [ -f ~/.git-prompt.sh ]; then
 fi
 
 complete -o default -o nospace -F _git g
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
