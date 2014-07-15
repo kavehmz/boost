@@ -20,6 +20,7 @@ git config --global alias.c checkout
 git config --global alias.cam commit -am
 git config --global alias.cm commit -m
 git config --global alias.d diff
+git config --global alias.dw diff --word-diff
 git config --global alias.a add
 git config --global alias.b branch
 git config --global alias.dw "diff --word-diff"
