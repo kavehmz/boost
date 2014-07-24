@@ -4,7 +4,10 @@ export PERL5LIB=~/perl5/lib/perl5
 
 alias c="perl /Users/kaveh/archive/boost/cmd.pl"
 alias bom='cd ~/Office/bom'
+alias cb='cd ~/Office/bom'
 alias ch='cd ~/Office/chef'
+alias ca='cd ~/archive/boost'
+
 alias gg="c gg"
 alias ff="c ff"
 alias ec="c ec"
@@ -15,6 +18,7 @@ alias bs="c bsync"
 alias kv="c kv"
 alias sf="c syncfile"
 alias g=git
+alias vb="rm cookbooks-*.tar.gz;berks package && tar -xzf cookbooks-*.tar.gz -C ~/.berkshelf/tmp/"
 
 git config --global alias.c checkout
 git config --global alias.cam commit -am
@@ -46,4 +50,6 @@ complete -o default -o nospace -F _git g
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
+
+shopt -s cdspell
 
