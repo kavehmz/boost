@@ -1,4 +1,4 @@
-export PATH="$PATH:/Users/kaveh/perl5/perlbrew/bin/:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/Users/kaveh/perl5/bin/"
+export PATH="$PATH:/Users/kaveh/perl5/perlbrew/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/Users/kaveh/perl5/bin"
 
 export PERL5LIB=~/perl5/lib/perl5
 
@@ -18,7 +18,6 @@ alias bs="c bsync"
 alias kv="c kv"
 alias sf="c syncfile"
 alias g=git
-alias vb="rm cookbooks-*.tar.gz;berks package && tar -xzf cookbooks-*.tar.gz -C ~/.berkshelf/tmp/"
 
 git config --global alias.c checkout
 git config --global alias.cam commit -am
@@ -36,14 +35,10 @@ git config --global alias.p "push origin HEAD"
 git config --global alias.r "rebase -p origin/ORIG_HEAD"
 git config --global alias.rst "reset --hard origin/ORIG_HEAD"
 
-if [ -f ~/.git-completion.bash ]; then
-  . ~/.git-completion.bash
-fi
+source ~/archive/boost/git-prompt.sh
+PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
-if [ -f ~/.git-prompt.sh ]; then
-  source ~/.git-prompt.sh
-  PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-fi
+. ~/archive/boost/git-completion.bash
 
 complete -o default -o nospace -F _git g
 
