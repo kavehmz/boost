@@ -39,6 +39,7 @@ source ~/archive/boost/git-prompt.sh
 PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
 . ~/archive/boost/git-completion.bash
+. ~/archive/boost/knife_autocomplete.sh
 
 complete -o default -o nospace -F _git g
 
