@@ -8,6 +8,7 @@ This repository contains part of my setup to help me doing stuff like:
 
 
 ```
+$ ca           # cd ~/archive/boost
 $ gg server    # searhing for content
 -1 cmd.pl:10     system('ssh root@' . get_server('kv'));
 -2 cmd.pl:14     system('ssh root@' . get_server($ARGV[1]));
