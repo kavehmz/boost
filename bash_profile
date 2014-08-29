@@ -6,7 +6,7 @@ alias c="perl /Users/kaveh/archive/boost/cmd.pl"
 alias bom='cd ~/Office/bom'
 alias cb='cd ~/Office/bom'
 alias ch='cd ~/Office/chef'
-alias ca='cd ~/archive/boost'
+alias ca='cd ~/archive'
 
 alias gg="c gg"
 alias ff="c ff"
@@ -48,3 +48,7 @@ fi
 
 shopt -s cdspell
 
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+source ~/.profile
