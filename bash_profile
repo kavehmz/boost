@@ -18,6 +18,7 @@ alias bs="c bsync"
 alias kv="c kv"
 alias sf="c syncfile"
 alias g=git
+alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 
 git config --global alias.c checkout
 git config --global alias.cam commit -am
