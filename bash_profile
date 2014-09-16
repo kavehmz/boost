@@ -19,6 +19,7 @@ alias kv="c kv"
 alias sf="c syncfile"
 alias g=git
 alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
+alias ts="perl -e 'use Time::HiRes; while(<>) { print Time::HiRes::time."'" "'".\$_;}'"
 
 git config --global alias.c checkout
 git config --global alias.cam commit -am
