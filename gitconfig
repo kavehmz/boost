@@ -1,0 +1,30 @@
+[user]
+	name = Kaveh Mousavi Zamani
+	email = kaveh@binary.com
+[color]
+	ui = auto
+	status = auto
+[core]
+	excludesfile = /Users/kaveh/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+	a = add
+	b = branch
+	c = checkout
+	cls = clean -df
+	cm = commit
+	d = diff
+	dw = diff
+	dw = diff --word-diff
+	f = fetch
+	l = log
+	m = merge --no-ff
+	p = push origin HEAD
+	r = rebase -p origin/ORIG_HEAD
+	rst = reset --hard origin/ORIG_HEAD
+	s = status

@@ -21,21 +21,6 @@ alias g=git
 alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 alias ts="perl -e 'use Time::HiRes; while(<>) { print Time::HiRes::time."'" "'".\$_;}'"
 
-git config --global alias.c checkout
-git config --global alias.cam commit -am
-git config --global alias.cm commit -m
-git config --global alias.d diff
-git config --global alias.dw "diff --word-diff" --replace-all 
-git config --global alias.a add
-git config --global alias.b branch
-git config --global alias.cls "clean -df"
-git config --global alias.s "status"
-git config --global alias.f "fetch"
-git config --global alias.m "merge --no-ff"
-git config --global alias.p "push origin HEAD"
-git config --global alias.r "rebase -p origin/ORIG_HEAD"
-git config --global alias.rst "reset --hard origin/ORIG_HEAD"
-
 source ~/archive/boost/git-prompt.sh
 PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
