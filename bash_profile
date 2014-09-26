@@ -22,7 +22,8 @@ alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 alias ts="perl -e 'use Time::HiRes; while(<>) { print Time::HiRes::time."'" "'".\$_;}'"
 
 source ~/archive/boost/git-prompt.sh
-PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+PS1='[\D{%F %T} \u@\h \W$(__git_ps1 " (%s)")]\$ '
+
 
 . ~/archive/boost/git-completion.bash
 . ~/archive/boost/knife_autocomplete.sh
