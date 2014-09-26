@@ -29,7 +29,7 @@ if ($ARGV[0] eq 'bsync') {
 
     system( 'ssh root@'
           . $devbox_domain_name
-          . ' \'chown nobody:nogroup /home/git/bom -R && ./utility/bin/cleanbom\''
+          . ' \'chown nobody:nogroup /home/git/bom -R\''
     );
 
 }
@@ -98,14 +98,14 @@ sub get_server {
     if (not $param or $param eq 'kv') {
         return $devbox_domain_name;
     }
-    my $number_of_domains = `grep "$param" ~/.boost/subdomain_list|grep -v drac|wc -l|tr -d ' '`;
+    my $number_of_domains = `cat ~/.boost/subdomain_list |egrep '^([^\.]+\.){3,6}\t'|cut -s -f1|sed 's/.\$//'|grep -v drac|egrep "$param" |wc -l|tr -d ' '`;
     chomp($number_of_domains);
     if ($number_of_domains eq 1) {
         return `grep "$param" ~/.boost/subdomain_list|grep -v drac`;
     }
 
     if ($param !~ /\./) {
-        my $cmd    = 'select i in `grep "' . $param . '" ~/.boost/subdomain_list|grep -v drac`; do echo $i;break;done';
+        my $cmd    = 'select i in `cat ~/.boost/subdomain_list |egrep \'^([^\.]+\.){3,6}\t\'|cut -s -f1|sed \'s/.$//\'|grep -v drac|egrep "' . $param . '"`; do echo $i;break;done';
         my $domain = `$cmd`;
         chomp($domain);
 
