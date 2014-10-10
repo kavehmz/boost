@@ -25,7 +25,7 @@ if ($ARGV[0] eq 'syncfile') {
 
 
 if ($ARGV[0] eq 'bsync') {
-    system('rsync -va --delete /Users/' . $user_name . '/Office/bom/ root@' . $devbox_domain_name . ':/home/git/bom');
+    system('rsync -va --progress --delete /Users/' . $user_name . '/Office/bom/ root@' . $devbox_domain_name . ':/home/git/bom');
 
     system( 'ssh root@'
           . $devbox_domain_name
@@ -101,7 +101,7 @@ sub get_server {
     my $number_of_domains = `cat ~/.boost/subdomain_list |egrep '^([^\.]+\.){3,6}\t'|cut -s -f1|sed 's/.\$//'|grep -v drac|egrep "$param" |wc -l|tr -d ' '`;
     chomp($number_of_domains);
     if ($number_of_domains eq 1) {
-        return `grep "$param" ~/.boost/subdomain_list|grep -v drac`;
+        return `cat ~/.boost/subdomain_list |egrep '^([^\.]+\.){3,6}\t'|cut -s -f1|sed 's/.\$//'|grep -v drac|egrep "$param" `;
     }
 
     if ($param !~ /\./) {
