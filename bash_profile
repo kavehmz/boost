@@ -4,9 +4,10 @@ export PERL5LIB=~/perl5/lib/perl5
 
 alias c="perl /Users/kaveh/archive/boost/cmd.pl"
 alias bom='cd ~/Office/devbox/home/git/bom'
-alias cb='cd ~/Office/devbox/home/git/bom'
-alias ch='cd ~/Office/chef'
-alias ca='cd ~/archive'
+alias cdb='cd ~/Office/devbox/home/git/bom'
+alias cdd='cd ~/Office/devbox'
+alias cdh='cd ~/Office/chef'
+alias cda='cd ~/archive'
 
 alias gg="c gg"
 alias ff="c ff"
