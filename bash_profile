@@ -3,8 +3,8 @@ export PATH="$PATH:/Users/kaveh/perl5/perlbrew/bin:/Applications/Sublime Text.ap
 export PERL5LIB=~/perl5/lib/perl5
 
 alias c="perl /Users/kaveh/archive/boost/cmd.pl"
-alias bom='cd ~/Office/bom'
-alias cb='cd ~/Office/bom'
+alias bom='cd ~/Office/devbox/home/git/bom'
+alias cb='cd ~/Office/devbox/home/git/bom'
 alias ch='cd ~/Office/chef'
 alias ca='cd ~/archive'
 
