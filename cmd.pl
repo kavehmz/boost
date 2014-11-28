@@ -74,7 +74,7 @@ if ($ARGV[0] eq 'gg') {
 
 if ($ARGV[0] eq 'ec') {
     my $line       = $ARGV[1];
-    my $line_found = `grep -e "^-$line " /tmp/last_gg_list`;
+    my $line_found = `if [ -f /tmp/last_gg_list ]; then grep -e "^-$line " /tmp/last_gg_list;fi`;
     my $c          = '';
     if ($line_found) {
         $c = `echo "$line_found" | cut -d' ' -f 2-2`;

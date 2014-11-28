@@ -6,6 +6,7 @@ alias c="perl /Users/kaveh/archive/boost/cmd.pl"
 alias bom='cd ~/Office/devbox/home/git/bom'
 alias cdb='cd ~/Office/devbox/home/git/bom'
 alias cdd='cd ~/Office/devbox'
+alias cdg='cd ~/Office/devbox/home/git'
 alias cdh='cd ~/Office/chef'
 alias cda='cd ~/archive'
 
