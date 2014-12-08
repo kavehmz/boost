@@ -19,12 +19,10 @@
 	cls = clean -df
 	cm = commit
 	d = diff
-	dw = diff
 	dw = diff --word-diff
 	f = fetch
 	l = log
 	m = merge --no-ff
 	p = push origin HEAD
-	r = rebase -p origin/ORIG_HEAD
-	rst = reset --hard origin/ORIG_HEAD
+	rstm = reset --hard origin/master
 	s = status
