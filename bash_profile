@@ -10,6 +10,10 @@ alias cdg='cd ~/Office/devbox/home/git/regentmarkets'
 alias cdh='cd ~/Office/chef'
 alias cda='cd ~/archive'
 
+gbs() {
+	for i in $(ls -d *); do echo $i; cd $i; git branch -l;cd ..;done
+}
+
 alias gg="c gg"
 alias ff="c ff"
 alias ec="c ec"
