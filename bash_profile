@@ -1,6 +1,8 @@
 export PATH="$PATH:/Users/kaveh/perl5/perlbrew/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/Users/kaveh/perl5/bin"
-
 export PERL5LIB=~/perl5/lib/perl5
+
+export JAVA_HOME='/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/'
+export PATH="$JAVA_HOME/bin:$PATH"
 
 alias c="perl /Users/kaveh/archive/boost/cmd.pl"
 alias bom='cd ~/Office/devbox/home/git/bom'
@@ -11,7 +13,7 @@ alias cdh='cd ~/Office/chef'
 alias cda='cd ~/archive'
 
 gbs() {
-	for i in $(ls -d *); do echo $i; cd $i; git branch -l;cd ..;done
+	for i in $(ls -d *); do echo $i; cd $i; git $1;cd ..;done
 }
 
 alias gg="c gg"
