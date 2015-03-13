@@ -105,7 +105,7 @@ sub get_server {
     }
 
     if ($param !~ /\./) {
-        my $cmd    = 'select i in `cat ~/.boost/subdomain_list |egrep \'^([^\.]+\.){3,6}\t\'|cut -s -f1|sed \'s/.$//\'|grep -v drac|egrep "' . $param . '"`; do echo $i;break;done';
+        my $cmd    = 'select i in `cat ~/.boost/subdomain_list|sort|egrep \'^([^\.]+\.){3,6}\t\'|cut -s -f1|sed \'s/.$//\'|grep -v drac|egrep "' . $param . '"`; do echo $i;break;done';
         my $domain = `$cmd`;
         chomp($domain);
 
