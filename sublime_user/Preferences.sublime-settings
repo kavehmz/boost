@@ -5,7 +5,7 @@
 	"detect_slow_plugins": false,
 	"find_selected_text": true,
 	"font_face": "Source Code Pro",
-	"font_size": 14,
+	"font_size": 13,
 	"highlight_line": false,
 	"ignored_packages":
 	[
