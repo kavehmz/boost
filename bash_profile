@@ -13,7 +13,7 @@ alias cdh='cd ~/Office/chef'
 alias cda='cd ~/archive'
 
 gbs() {
-	for i in $(ls -d *); do echo $i; cd $i; git $1;cd ..;done
+	for i in $(ls -d *); do echo $i; cd $i; git ${*:0};cd ..;done
 }
 
 alias gg="c gg"
