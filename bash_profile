@@ -12,7 +12,7 @@ alias cdg='cd ~/Office/devbox/home/git/regentmarkets'
 alias cdh='cd ~/Office/chef'
 alias cda='cd ~/archive'
 
-gbs() {
+gs() {
 	for i in $(ls -d */); do echo $i; cd $i; eval git ${*:0};cd ..;done
 }
 
