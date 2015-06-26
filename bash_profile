@@ -44,6 +44,5 @@ fi
 
 shopt -s cdspell
 
-source ~/perl5/perlbrew/etc/bashrc
 export GOROOT=~/archive/go
 export PATH="$PATH:$GOROOT/bin"
