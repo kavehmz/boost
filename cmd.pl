@@ -6,61 +6,12 @@ chomp($devbox_domain_name);
 my $user_name = `cat ~/.boost/user_name`;
 chomp($user_name);
 
-if ($ARGV[0] eq 'kv') {
-    system('ssh root@' . get_server('kv'));
-}
-
 if ($ARGV[0] eq 'shr') {
     system('ssh root@' . get_server($ARGV[1]));
 }
 
 if ($ARGV[0] eq 'sh') {
     system('ssh ' . $user_name . '@' . get_server($ARGV[1]));
-}
-
-
-if ($ARGV[0] eq 'syncfile') {
-    system('scp ' . $ARGV[1] . ' root@' . get_server('kv') . ':/home/git/bom/'.$ARGV[1]);
-}
-
-
-if ($ARGV[0] eq 'bsync') {
-    system('rsync -va --progress --delete /Users/' . $user_name . '/Office/bom/ root@' . $devbox_domain_name . ':/home/git/bom');
-
-    system( 'ssh root@'
-          . $devbox_domain_name
-          . ' \'chown nobody:nogroup /home/git/bom -R\''
-    );
-
-}
-
-if ($ARGV[0] eq 'apr') {
-    system('rm /etc/rmg/apache/rmg_apache.conf;/etc/init.d/rmg_apache  restart;tail -f /var/log/httpd/error.log -n 0');
-}
-
-if ($ARGV[0] eq 'rapr') {
-    system( 'ssh root@'
-          . $devbox_domain_name
-          . ' "rm /etc/rmg/apache/rmg_apache.conf;/etc/init.d/rmg_apache  restart;tail -f /var/log/httpd/error.log -n 0"');
-}
-
-if ($ARGV[0] eq 'ngr') {
-    system('rm /etc/rmg/nginx/rmg_nginx_proxy.conf;/etc/init.d/rmg_nginx_proxy restart;tail -f /var/log/httpd/proxy-access.log');
-}
-
-if ($ARGV[0] eq 'rngr') {
-    system( 'ssh root@'
-          . $devbox_domain_name
-          . ' "rm /etc/rmg/nginx/rmg_nginx_proxy.conf;/etc/init.d/rmg_nginx_proxy restart;tail -f /var/log/httpd/proxy-access.log"');
-}
-
-if ($ARGV[0] eq 'au') {
-    system('sudo apt-get update');
-    system('sudo apt-get dist-upgrade');
-}
-
-if ($ARGV[0] eq 'die') {
-    system('sudo pm-suspend');
 }
 
 if ($ARGV[0] eq 'gg') {
@@ -95,9 +46,6 @@ if ($ARGV[0] eq 'ff') {
 sub get_server {
     my $param = shift;
 
-    if (not $param or $param eq 'kv') {
-        return $devbox_domain_name;
-    }
     my $number_of_domains = `cat ~/.boost/subdomain_list |egrep '^([^\.]+\.){3,6}\t'|cut -s -f1|sed 's/.\$//'|grep -v drac|egrep "$param" |wc -l|tr -d ' '`;
     chomp($number_of_domains);
     if ($number_of_domains eq 1) {
