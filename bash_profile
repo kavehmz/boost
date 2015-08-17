@@ -1,4 +1,4 @@
-export PATH="$PATH:~/perl5/perlbrew/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:~/perl5/bin:$JAVA_HOME/bin:$GOROOT/bin:~/archive/hub
+export PATH="$PATH:~/perl5/perlbrew/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:~/perl5/bin:$JAVA_HOME/bin:$GOROOT/bin:~/archive/hub"
 export PERL5LIB=~/perl5/lib/perl5
 export JAVA_HOME='/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/'
 export GOROOT=~/archive/go
