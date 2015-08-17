@@ -4,7 +4,7 @@ export JAVA_HOME='/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Ho
 export GOROOT=~/archive/go
 
 gs() {
-	for i in *; do [ -d $i ] || continue;echo $i; cd $i; eval git ${*:0};cd ..;done
+	for i in *; do [ -d $i ] || continue;echo "$i"; cd "$i"; eval git ${*:0};cd ..;done
 }
 
 alias c="perl ~/archive/boost/cmd.pl"
