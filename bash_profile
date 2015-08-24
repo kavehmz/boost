@@ -4,13 +4,13 @@ export PERL5LIB=~/perl5/lib/perl5
 export JAVA_HOME='/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/'
 
 gs() {
-	for i in *; do [ -d $i ] || continue;echo "$i"; cd "$i"; eval git ${*:0};cd ..;done
+	for i in *; do [ -d $i ] || continue;echo "repo:$i"; cd "$i"; eval git ${*:0};cd ..;done
 }
 
 gps() {
 	GIT_TOKEN=$(cat ~/.boost/git_token)
 	GIT_ORG=$(cat ~/.boost/git_org)
-	for i in *; do [ -d $i ] || continue;echo "$i"; cd "$i"; REPO="$(basename $(pwd))"; curl --silent "https://api.github.com/repos/$GIT_ORG/$REPO/pulls?access_token=$GIT_TOKEN"|grep head -A1|grep label|cut -d'"' -f4 ;cd ..;done
+	for i in *; do [ -d $i ] || continue;echo "repo:$i"; cd "$i"; REPO="$(basename $(pwd))"; curl --silent "https://api.github.com/repos/$GIT_ORG/$REPO/pulls?access_token=$GIT_TOKEN"|grep head -A1|grep label|cut -d'"' -f4 ;cd ..;done
 }
 
 alias c="perl ~/archive/boost/cmd.pl"
