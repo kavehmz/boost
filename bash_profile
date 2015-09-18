@@ -1,8 +1,7 @@
-export GOROOT=~/archive/go
-export GOPATH=~/archive/gopath
-export PATH="$PATH:~/perl5/perlbrew/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:~/perl5/bin:$JAVA_HOME/bin:$GOROOT/bin:$GOPATH/bin:~/archive/hub"
-export PERL5LIB=~/perl5/lib/perl5
+export GOROOT=~/dev/opt/go
+export GOPATH=~/dev/opt/gopath
 export JAVA_HOME='/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/'
+export PATH="$PATH:/Applications/Sublime Text.app/Contents/SharedSupport/bin:$JAVA_HOME/bin:$GOROOT/bin:$GOPATH/bin:~/dev/opt/hub"
 
 gs() {
 	for i in *; do [ -d $i ] || continue;echo "repo:$i"; cd "$i"; eval git ${*:0};cd ..;done
@@ -14,12 +13,11 @@ gps() {
 	for i in *; do [ -d $i ] || continue;echo "repo:$i"; cd "$i"; REPO="$(basename $(pwd))"; curl --silent "https://api.github.com/repos/$GIT_ORG/$REPO/pulls?access_token=$GIT_TOKEN"|grep head -A1|grep label|cut -d'"' -f4 ;cd ..;done
 }
 
-alias c="perl ~/archive/boost/cmd.pl"
-alias cda='cd ~/archive'
-alias cdk='cd ~/archive/Dady'
-alias cdd='cd ~/Office/devbox'
-alias cdg='cd ~/Office/repos'
-alias cdh='cd ~/Office/chef'
+alias cdd='cd ~/dev/'
+alias c="perl ~/dev/home/git/kavehmz/boost/cmd.pl"
+alias cdk='cd ~/dev/home/git/kavehmz'
+alias cdr='cd ~/dev/home/git/regentmarkets'
+alias cdc='cd ~/dev/home/git/regentmarkets/chef'
 
 alias gg="c gg"
 alias ff="c ff"
@@ -30,13 +28,14 @@ alias g=git
 alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 alias ts="perl -e 'use Time::HiRes; while(<>) { print Time::HiRes::time."'" "'".\$_;}'"
 alias git=hub
+alias bstat='for i in `ls`; do printf "$i: "; branch_status -t $(cat ~/.boost/git_token) -o $(cat ~/.boost/git_org) -r $i; done'
 
-source ~/archive/boost/git-prompt.sh
+source ~/dev/home/git/kavehmz/boost/git-prompt.sh
 PS1='\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
 
-. ~/archive/boost/git-completion.bash
-. ~/archive/boost/knife_autocomplete.sh
+. ~/dev/home/git/kavehmz/boost/git-completion.bash
+. ~/dev/home/git/kavehmz/boost/knife_autocomplete.sh
 
 complete -o default -o nospace -F _git g
 
