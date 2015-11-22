@@ -22,6 +22,7 @@ alias ff="c ff"
 alias ec="c ec"
 alias shr="c shr"
 alias sh="c sh"
+alias dev="ssh dev"
 alias g=git
 alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 alias ts="perl -e 'use Time::HiRes; while(<>) { print Time::HiRes::time."'" "'".\$_;}'"
