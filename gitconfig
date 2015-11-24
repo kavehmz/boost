@@ -27,3 +27,4 @@
 	s = status
 	pr = pull-request
 	pp = push kavehmz HEAD
+	rst = reset --hard origin/master
