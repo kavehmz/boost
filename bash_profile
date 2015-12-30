@@ -30,6 +30,9 @@ alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 alias ts="perl -e 'use Time::HiRes; while(<>) { print Time::HiRes::time."'" "'".\$_;}'"
 alias git=hub
 alias bstat='for i in `ls`; do printf "$i: "; branch_status -t $(cat ~/.boost/git_token) -o $(cat ~/.boost/git_org) -r $i; done'
+alias gr="go run"
+alias gt="go test"
+
 
 source ~/dev/home/git/kavehmz/boost/git-prompt.sh
 PS1='\u@\h \W$(__git_ps1 " (%s)")]\$ '
