@@ -32,6 +32,8 @@ alias git=hub
 alias bstat='for i in `ls`; do printf "$i: "; branch_status -t $(cat ~/.boost/git_token) -o $(cat ~/.boost/git_org) -r $i; done'
 alias gr="go run"
 alias gt="go test"
+#an alias to show the latest commit for each file. This also shows which files are in git
+alias gl='for i in $(ls -A);do printf "%-32s %s\n" "$i" "$(git log -n1 --oneline $i)";done'
 
 
 source ~/dev/home/git/kavehmz/boost/git-prompt.sh
