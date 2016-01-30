@@ -32,7 +32,8 @@ if ($ARGV[0] eq 'ec') {
     } else {
         $c = $ARGV[1];
     }
-    system('subl -b ' . $c);
+    #system('subl -b ' . $c);
+    system('atom ' . $c);
 }
 
 if ($ARGV[0] eq 'ff') {
