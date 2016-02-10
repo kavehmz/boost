@@ -17,7 +17,10 @@ gps() {
 
 alias cdd='cd ~/dev/'
 alias c="perl ~/dev/home/git/kavehmz/boost/cmd.pl"
-alias cdg='cd ~/dev/home/git'
+cdg() {
+    cd ~/dev/home/git
+    [ "$1" != "" ] && cd "$1"
+}
 
 alias gg="c gg"
 alias ff="c ff"
