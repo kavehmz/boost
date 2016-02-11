@@ -53,4 +53,8 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
+#touch ~/.bash_sessions_disable
+# on mac this tends to accumulate and is make bash load slower
+find ~/.bash_sessions/ -mtime +3 -type f -delete
+
 shopt -s cdspell
