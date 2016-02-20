@@ -1,7 +1,6 @@
-export GOROOT=~/dev/opt/go
 export SCALA_HOME=~/dev/opt/scala
-export GOROOT=~/dev/opt/go
-export GOPATH=~/dev/opt/gopath
+export GOROOT=~/dev/opt/go/goroot
+export GOPATH=~/dev/opt/go/gopath
 export JAVA_HOME='/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/'
 export PATH="$PATH:$SCALA_HOME/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:$JAVA_HOME/bin:$GOROOT/bin:$GOPATH/bin:~/dev/opt/hub"
 
