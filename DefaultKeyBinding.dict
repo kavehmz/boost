@@ -1,0 +1,6 @@
+#https://github.com/atom/atom/issues/1669
+{
+    "^@\UF701" = "noop:";
+    "^@\UF702" = "noop:";
+    "^@\UF703" = "noop:";
+}
