@@ -1,6 +1,6 @@
 export SCALA_HOME=~/dev/opt/scala
 export GOROOT=~/dev/opt/go/goroot
-export GOPATH=~/dev/opt/go/gopath
+export GOPATH=~/dev/home/projects:~/dev/opt/go/gopath
 export JAVA_HOME='/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/'
 export PATH="$PATH:$SCALA_HOME/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:$JAVA_HOME/bin:$GOROOT/bin:$GOPATH/bin:~/dev/opt/hub"
 
@@ -21,6 +21,15 @@ cdg() {
     [ "$1" != "" ] && cd "$1"
 }
 
+mvpt() {
+    mv ~/dev/home/git/kavehmz/$1 ~/dev/home/projects/src/github.com/kavehmz/
+}
+
+mvpb() {
+    mv ~/dev/home/projects/src/github.com/kavehmz/$1 ~/dev/home/git/kavehmz/
+}
+
+
 alias gg="c gg"
 alias ff="c ff"
 alias ec="c ec"
@@ -37,7 +46,6 @@ alias gt="go test"
 #an alias to show the latest commit for each file. This also shows which files are in git
 alias gl='for i in $(ls -A);do printf "%-32s %s\n" "$i" "$(git log -n1 --oneline $i)";done'
 alias jk='ssh -N -L 4000:localhost:4000 dev'
-
 
 source ~/dev/home/git/kavehmz/boost/git-prompt.sh
 PS1='\u@\h \W$(__git_ps1 " (%s)")]\$ '
