@@ -21,6 +21,11 @@ cdg() {
     [ "$1" != "" ] && cd "$1"
 }
 
+cdp() {
+    cd ~/dev/home/projects
+    [ "$1" != "" ] && cd "src/github.com/kavehmz/$1"
+}
+
 mvpt() {
     mv ~/dev/home/git/kavehmz/$1 ~/dev/home/projects/src/github.com/kavehmz/
 }
