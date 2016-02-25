@@ -1,0 +1,43 @@
+"*":
+  "atom-material-ui":
+    colors: {}
+    fonts: {}
+    tabs:
+      compactTabs: true
+    treeView:
+      compactList: true
+    ui:
+      animations: false
+      panelContrast: true
+  "base16-syntax":
+    scheme: "Twilight"
+  core:
+    disabledPackages: [
+      "vim-mode"
+    ]
+    ignoredNames: [
+      ".git"
+      ".DS_Store"
+      "._*. Thumbs.db"
+      "tags"
+    ]
+    themes: [
+      "atom-material-ui"
+      "seti-syntax"
+    ]
+  editor:
+    fontSize: 13
+    invisibles: {}
+  "exception-reporting":
+    userId: "e2a5b2d3-c704-ccea-3f4c-33082edacbb6"
+  "git-blame": {}
+  "go-plus": {
+    "vetArgs": "-all -asmdecl -assign -atomic -bool -buildtags -cgocall -composites -compositewhitelist -copylocks -example -methods -nilfunc -printf -rangeloops -shadow -shadowstrict -shift -structtags -unreachable -unsafeptr"
+  }
+  "markdown-themeable-pdf": {}
+  minimap: {}
+  "one-dark-ui": {}
+  "project-manager": {}
+  "vim-mode": {}
+  welcome:
+    showOnStartup: false
