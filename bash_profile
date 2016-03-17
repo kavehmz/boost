@@ -3,6 +3,10 @@ export GOROOT=~/dev/opt/go/goroot
 export GOPATH=~/dev/home/projects:~/dev/opt/go/gopath
 export JAVA_HOME='/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/'
 export PATH="$PATH:$SCALA_HOME/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:$JAVA_HOME/bin:$GOROOT/bin:$GOPATH/bin:~/dev/opt/hub"
+export PATH=$PATH:~/dev/home/projects/bin:~/dev/opt/go/gopath/bin
+
+# http://apple.stackexchange.com/questions/59154/ "How do I stop the play/pause keyboard buttons from launching iTunes"
+launchctl list | grep -q rcd && launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
 
 gs() {
 	for i in *; do [ -d $i ] || continue;echo "repo:$i"; cd "$i"; eval git ${*:0};cd ..;done
