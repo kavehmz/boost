@@ -25,6 +25,7 @@
   editor:
     fontSize: 13
     invisibles: {}
+    tabLength: 4
   "exception-reporting":
     userId: "e2a5b2d3-c704-ccea-3f4c-33082edacbb6"
   "git-blame": {}
