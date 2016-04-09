@@ -1,6 +1,7 @@
 [user]
 	name = Kaveh Mousavi Zamani
 	email = kavehmz@gmail.com
+	signingkey = ED8AE023
 [color]
 	ui = auto
 	status = auto
