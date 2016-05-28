@@ -23,6 +23,7 @@
       "seti-syntax"
     ]
   editor:
+    fontFamily: "source code pro"
     fontSize: 13
     invisibles: {}
     tabLength: 4
@@ -31,6 +32,9 @@
   "git-blame": {}
   "go-plus":
     vetArgs: "-all -asmdecl -assign -atomic -bool -buildtags -cgocall -composites -compositewhitelist -copylocks -example -methods -nilfunc -printf -rangeloops -shadow -shadowstrict -shift -structtags -unreachable -unsafeptr"
+  linter:
+    errorPanelHeight: 277
+    showErrorPanel: false
   "markdown-themeable-pdf": {}
   minimap: {}
   "one-dark-ui": {}

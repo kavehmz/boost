@@ -22,12 +22,12 @@ alias cdd='cd ~/dev/'
 alias c="perl ~/dev/home/git/kavehmz/boost/cmd.pl"
 cdg() {
     cd ~/dev/home/git
-    [ "$1" != "" ] && cd "$1"
+    [ "$1" != "" ] && cd $1
 }
 
 cdp() {
     cd ~/dev/home/projects
-    [ "$1" != "" ] && cd "src/github.com/kavehmz/$1"
+    [ "$1" != "" ] && cd src/github.com/kavehmz/$1
 }
 
 mvpt() {
