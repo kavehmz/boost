@@ -57,7 +57,7 @@ alias gl='for i in $(ls -A);do printf "%-32s %s\n" "$i" "$(git log -n1 --oneline
 alias jk='ssh -N -L 4000:localhost:4000 dev'
 
 source ~/dev/home/git/kavehmz/boost/git-prompt.sh
-PS1='\u@\h \W$(__git_ps1 " (%s)")]\$ '
+PS1=' \u@\h \W$(__git_ps1 " (%s)")]\$ '
 
 
 . ~/dev/home/git/kavehmz/boost/git-completion.bash

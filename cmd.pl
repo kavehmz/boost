@@ -47,14 +47,14 @@ if ($ARGV[0] eq 'ff') {
 sub get_server {
     my $param = shift;
 
-    my $number_of_domains = `cat ~/.boost/subdomain_list |egrep '^([^\.]+\.){3,6}\t'|cut -s -f1|sed 's/.\$//'|grep -v drac|egrep "$param" |wc -l|tr -d ' '`;
+    my $number_of_domains = `cat ~/.boost/subdomain_list|grep -v TXT|egrep '^([^\.]+\.){3,6}\t'|cut -s -f1|sed 's/.\$//'|grep -v drac|egrep "$param"|uniq|wc -l|tr -d ' '`;
     chomp($number_of_domains);
     if ($number_of_domains eq 1) {
-        return `cat ~/.boost/subdomain_list |egrep '^([^\.]+\.){3,6}\t'|cut -s -f1|sed 's/.\$//'|grep -v drac|egrep "$param" `;
+        return `cat ~/.boost/subdomain_list|grep -v TXT|egrep '^([^\.]+\.){3,6}\t'|cut -s -f1|sed 's/.\$//'|grep -v drac|egrep "$param"|uniq `;
     }
 
     if ($param !~ /\./) {
-        my $cmd    = 'select i in `cat ~/.boost/subdomain_list|sort|egrep \'^([^\.]+\.){3,6}\t\'|cut -s -f1|sed \'s/.$//\'|grep -v drac|egrep "' . $param . '"`; do echo $i;break;done';
+        my $cmd    = 'select i in `cat ~/.boost/subdomain_list|grep -v TXT|sort|egrep \'^([^\.]+\.){3,6}\t\'|cut -s -f1|sed \'s/.$//\'|grep -v drac|egrep "' . $param . '"|uniq`; do echo $i;break;done';
         my $domain = `$cmd`;
         chomp($domain);
 
