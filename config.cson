@@ -20,7 +20,7 @@
     ]
     themes: [
       "atom-material-ui"
-      "seti-syntax"
+      "atom-monokai"
     ]
   editor:
     fontFamily: "source code pro"
