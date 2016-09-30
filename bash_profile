@@ -29,7 +29,7 @@ cdg() {
 
 cdp() {
     cd ~/dev/home/projects/src
-    [ "$1" != "" ] && cd src/github.com/$1
+    [ "$1" != "" ] && cd $1
 }
 
 alias gg="c gg"
