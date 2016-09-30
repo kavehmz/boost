@@ -43,14 +43,16 @@ alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 alias ts="perl -e 'use Time::HiRes; while(<>) { print Time::HiRes::time."'" "'".\$_;}'"
 alias git=hub
 alias bstat='for i in `ls`; do printf "$i: "; branch_status -t $(cat ~/.boost/git_token) -o $(cat ~/.boost/git_org) -r $i; done'
-alias gr="go run"
-alias gt="go test"
+alias gob="go build"
+alias gog="go get"
+alias gor="go run"
+alias got="go test"
 #an alias to show the latest commit for each file. This also shows which files are in git
 alias gl='for i in $(ls -A);do printf "%-32s %s\n" "$i" "$(git log -n1 --oneline $i)";done'
 alias jk='ssh -N -L 4000:localhost:4000 dev'
 
 source ~/dev/home/projects/src/github.com/kavehmz/boost/git-prompt.sh
-PS1=' \u@\h \W$(__git_ps1 " (%s)")]\$ '
+PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
 
 . ~/dev/home/projects/src/github.com/kavehmz/boost/git-completion.bash
