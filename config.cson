@@ -1,6 +1,9 @@
 "*":
   "atom-material-ui":
-    colors: {}
+    colors:
+      abaseColor: "#cddc39"
+      accentColor: "#737f10"
+      predefinedColor: "Lime"
     fonts: {}
     tabs:
       compactTabs: true
@@ -32,7 +35,11 @@
     userId: "e2a5b2d3-c704-ccea-3f4c-33082edacbb6"
   "git-blame": {}
   "go-plus":
+    currentPanelHeight: "27.96271637816245vh"
     vetArgs: "-all -asmdecl -assign -atomic -bool -buildtags -cgocall -composites -compositewhitelist -copylocks -example -methods -nilfunc -printf -rangeloops -shadow -shadowstrict -shift -structtags -unreachable -unsafeptr"
+  "tester-go":
+    runTestsOnSave: false
+    coverageHighlightMode: "disabled"
   linter:
     errorPanelHeight: 277
     showErrorPanel: false
