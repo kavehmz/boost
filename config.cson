@@ -18,6 +18,7 @@
       "._*. Thumbs.db"
       "tags"
     ]
+    telemetryConsent: "no"
     themes: [
       "atom-material-ui"
       "atom-monokai"
