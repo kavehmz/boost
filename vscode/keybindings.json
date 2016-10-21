@@ -1,0 +1,24 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "cmd+shift+r",
+        "command": "workbench.action.showAllSymbols"
+    },
+    {
+        "key": "cmd+r",
+        "command": "workbench.action.gotoSymbol"
+    },
+    {
+        "key": "cmd+alt+/",
+        "command": "editor.action.goToDeclaration"
+    },
+    {
+        "key": "cmd+-",
+        "command": "workbench.action.navigateBack"
+    },
+    {
+        "key": "cmd+shift+l",
+        "command": "editor.action.insertCursorAtEndOfEachLineSelected",
+        "when": "editorTextFocus"
+    }
+]
