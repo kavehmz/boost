@@ -35,11 +35,8 @@
     userId: "e2a5b2d3-c704-ccea-3f4c-33082edacbb6"
   "git-blame": {}
   "go-plus":
-    currentPanelHeight: "27.96271637816245vh"
-    vetArgs: "-all -asmdecl -assign -atomic -bool -buildtags -cgocall -composites -compositewhitelist -copylocks -example -methods -nilfunc -printf -rangeloops -shadow -shadowstrict -shift -structtags -unreachable -unsafeptr"
-  "tester-go":
-    runTestsOnSave: false
-    coverageHighlightMode: "disabled"
+    currentPanelHeight: "27.82956058588549vh"
+  "gometalinter-linter": {}
   linter:
     errorPanelHeight: 277
     showErrorPanel: false
@@ -47,6 +44,9 @@
   minimap: {}
   "one-dark-ui": {}
   "project-manager": {}
+  "tester-go":
+    coverageHighlightMode: "disabled"
+    runTestsOnSave: false
   "vim-mode": {}
   welcome:
     showOnStartup: false
