@@ -1,13 +1,23 @@
 // Place your key bindings in this file to overwrite the defaults
-[{
-    "key": "shift+cmd+d",
-    "command": "editor.action.copyLinesDownAction",
-    "when": "editorTextFocus"
-},{
-    "key": "shift+cmd+6",
-    "command": "workbench.action.selectTheme",
-    "when": "editorTextFocus"
-},
+[
+    {
+        "key": "shift+cmd+left",
+        "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "shift+cmd+right",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "shift+cmd+d",
+        "command": "editor.action.copyLinesDownAction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+cmd+6",
+        "command": "workbench.action.selectTheme",
+        "when": "editorTextFocus"
+    },
     {
         "key": "cmd+shift+r",
         "command": "workbench.action.showAllSymbols"

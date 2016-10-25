@@ -19,6 +19,12 @@ gps() {
 	for i in *; do [ -d $i ] || continue;echo "repo:$i"; cd "$i"; REPO="$(basename $(pwd))"; curl --silent "https://api.github.com/repos/$GIT_ORG/$REPO/pulls?access_token=$GIT_TOKEN"|grep head -A1|grep label|cut -d'"' -f4 ;cd ..;done
 }
 
+glint() {
+    go tool vet -all -shadow $1
+    golint $1
+    gotype -a $1
+}
+
 alias cdd='cd ~/dev/'
 alias c="perl ~/dev/home/projects/src/github.com/kavehmz/boost/cmd.pl"
 
