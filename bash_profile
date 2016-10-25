@@ -23,6 +23,7 @@ glint() {
     go tool vet -all -shadow $1
     golint $1
     gotype -a $1
+    [ "$(which gosimple)" != "" ] && gosimple $1
 }
 
 alias cdd='cd ~/dev/'

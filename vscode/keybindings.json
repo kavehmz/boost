@@ -1,6 +1,24 @@
 // Place your key bindings in this file to overwrite the defaults
 [
     {
+        "key": "ctrl+cmd+down",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+cmd+up",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+cmd+.",
+        "command": "editor.action.openDeclarationToTheSide"
+    },
+    {
+        "key": "alt+cmd+,",
+        "command": "editor.action.previewDeclaration"
+    },
+    {
         "key": "shift+cmd+left",
         "command": "workbench.action.previousEditor"
     },
