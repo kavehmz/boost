@@ -4,5 +4,6 @@
         "-all","-shadow"
     ],
     "go.autocompleteUnimportedPackages": true,
-    "go.formatTool":"goimports"
+    "go.formatTool":"goimports",
+    "workbench.editor.enablePreview":false
 }
