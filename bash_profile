@@ -52,7 +52,7 @@ alias ts="perl -e 'use Time::HiRes; while(<>) { print Time::HiRes::time."'" "'".
 alias git=hub
 alias bstat='for i in `ls`; do printf "$i: "; branch_status -t $(cat ~/.boost/git_token) -o $(cat ~/.boost/git_org) -r $i; done'
 alias gob="go build"
-alias gog="go get"
+alias gog="go get -u -v"
 alias gor="go run"
 alias got="go test"
 #an alias to show the latest commit for each file. This also shows which files are in git
