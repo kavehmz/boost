@@ -5,5 +5,8 @@
     ],
     "go.autocompleteUnimportedPackages": true,
     "go.formatTool":"goimports",
-    "workbench.editor.enablePreview":false
+    "workbench.editor.enablePreview":false,
+    "files.associations": {
+        "Vagrantfile":"ruby"
+    }
 }

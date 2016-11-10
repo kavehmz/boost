@@ -58,6 +58,16 @@
         "command": "workbench.action.navigateBack"
     },
     {
+        "key": "ctrl+shift+a",
+        "command": "cursorHomeSelect",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+e",
+        "command": "cursorEndSelect",
+        "when": "editorTextFocus"
+    },
+    {
         "key": "cmd+shift+l",
         "command": "editor.action.insertCursorAtEndOfEachLineSelected",
         "when": "editorTextFocus"
