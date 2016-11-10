@@ -29,10 +29,10 @@ glint() {
 alias cdd='cd ~/dev/'
 alias c="perl ~/dev/home/projects/src/github.com/kavehmz/boost/cmd.pl"
 
-# cdg k*/bo*
+# (cdg k/bo) => (cdg; cd k*/bo*)
 cdg() {
     cd ~/dev/home/projects/src/github.com
-    [ "$1" != "" ] && cd $1
+    [ "$1" != "" ] && cd $(echo $1|sed 's/\//*\//'|sed 's/$/*/')
 }
 
 cdp() {
