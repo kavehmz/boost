@@ -1,12 +1,14 @@
 // Place your settings in this file to overwrite default and user settings.
 {
     "go.vetFlags": [
-        "-all","-shadow"
+        "-all",
+        "-shadow"
     ],
     "go.autocompleteUnimportedPackages": true,
-    "go.formatTool":"goimports",
-    "workbench.editor.enablePreview":false,
+    "go.formatTool": "goimports",
+    "workbench.editor.enablePreview": false,
     "files.associations": {
-        "Vagrantfile":"ruby"
+        "Vagrantfile": "ruby"
     }
+    ,"editor.fontFamily": "Go Mono, Menlo, Monaco, 'Courier New', monospace"
 }
