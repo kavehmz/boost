@@ -11,7 +11,7 @@ gs() {
 
 gps() {
 	GIT_TOKEN=$(cat ~/.boost/git_token)
-	GIT_ORG=$(cat ~/.boost/git_org)
+	GIT_ORG="$(basename $(pwd))"
 	for i in *; do [ -d $i ] || continue;echo "repo:$i"; cd "$i"; REPO="$(basename $(pwd))"; curl --silent "https://api.github.com/repos/$GIT_ORG/$REPO/pulls?access_token=$GIT_TOKEN"|grep head -A1|grep label|cut -d'"' -f4 ;cd ..;done
 }
 
@@ -46,7 +46,6 @@ alias g=git
 alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 alias ts="perl -e 'use Time::HiRes; while(<>) { print sprintf(\"%-17s \", Time::HiRes::time),"'" "'".\$_;}'"
 alias git=hub
-alias bstat='for i in `ls`; do printf "$i: "; branch_status -t $(cat ~/.boost/git_token) -o $(cat ~/.boost/git_org) -r $i; done'
 alias gob="go build"
 alias gog="go get -u -v"
 alias gor="go run"
