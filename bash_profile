@@ -12,7 +12,7 @@ gs() {
 gps() {
 	GIT_TOKEN=$(cat ~/.boost/git_token)
 	GIT_ORG="$(basename $(pwd))"
-	for i in *; do [ -d $i ] || continue;echo "repo:$i"; cd "$i"; REPO="$(basename $(pwd))"; curl --silent "https://api.github.com/repos/$GIT_ORG/$REPO/pulls?access_token=$GIT_TOKEN"|grep head -A1|grep label|cut -d'"' -f4 ;cd ..;done
+	for i in *; do [ -d $i ] || continue;echo "repo:$i"; cd "$i"; REPO="$(basename $(pwd))"; curl --silent "https://api.github.com/repos/$GIT_ORG/$REPO/pulls?access_token=$GIT_TOKEN"|grep head -A1|grep label|cut -d'"' -f4|cat -n ;cd ..;done
 }
 
 glint() {
@@ -58,16 +58,14 @@ PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
 
 . ~/dev/home/projects/src/github.com/kavehmz/boost/git-completion.bash
-. ~/dev/home/projects/src/github.com/kavehmz/boost/knife_autocomplete.sh
 
 complete -o default -o nospace -F _git g
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
 
 #touch ~/.bash_sessions_disable
 # on mac this tends to accumulate and is make bash load slower
 find ~/.bash_sessions/ -mtime +3 -type f -delete
 
 shopt -s cdspell
+
+ssh-add -A &> /dev/null
