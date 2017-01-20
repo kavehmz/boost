@@ -53,6 +53,11 @@ alias got="go test"
 #an alias to show the latest commit for each file. This also shows which files are in git
 alias gl='for i in $(ls -A);do printf "%-32s %s\n" "$i" "$(git log -n1 --oneline $i)";done'
 
+alias clsps='docker ps -a |tail -n +2|tr -s " "|cut -d" " -f 1|xargs docker rm -f'
+alias clsim='docker images|tail -n +2|tr -s " "|cut -d" " -f 3|xargs docker rmi -f'
+alias d='docker'
+alias dc='docker-compose'
+
 source ~/dev/home/projects/src/github.com/kavehmz/boost/git-prompt.sh
 PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
