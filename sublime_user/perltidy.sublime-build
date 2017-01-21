@@ -1,6 +1,0 @@
-{
-	"cmd": [
-		"perl -I /Users/kaveh/Office/bom/lib -MBOM::Utility::Perl::Tidy -e 'BOM::Utility::Perl::Tidy->instance->overwrite_code(1); print BOM::Utility::Perl::Tidy->instance->contents' > ~/.perltidyrc && perl -I /Users/kaveh/perl5/bom/ /Users/kaveh/perl5/bom/perltidy -b $file  && rm $file.bak"],
-	"shell": true,
-	"selector": "source.perl"
-}

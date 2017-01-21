@@ -9,7 +9,7 @@
     "workbench.editor.enablePreview": false,
     "files.associations": {
         "Vagrantfile": "ruby",
-        "*.erb": "ruby"
-    }
-    ,"editor.fontFamily": "Go Mono, Menlo, Monaco, 'Courier New', monospace"
+        "*.erb": "ruby",
+        "bash_profile": "shellscript"
+    },"editor.fontFamily": "Go Mono, Menlo, Monaco, 'Courier New', monospace"
 }

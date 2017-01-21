@@ -22,9 +22,6 @@ glint() {
     [ "$(which gosimple)" != "" ] && gosimple $1
 }
 
-alias cdd='cd ~/dev/'
-alias c="perl ~/dev/home/projects/src/github.com/kavehmz/boost/cmd.pl"
-
 # (cdg k/bo) => (cdg; cd k*/bo*)
 cdg() {
     cd ~/dev/home/projects/src/github.com
@@ -36,41 +33,36 @@ cdp() {
     [ "$1" != "" ] && cd $(echo $1|sed 's/\//*\//g'|sed 's/$/*/')
 }
 
-alias gg="c gg"
-alias ff="c ff"
-alias ec="c ec"
-alias shr="c shr"
-alias sh="c sh"
-alias dev="ssh dev"
+alias cdd='cd ~/dev/'
+alias c="perl ~/dev/home/projects/src/github.com/kavehmz/boost/cmd.pl"
+alias gg="git grep -in"
+alias ff="find .  | grep -i"
 alias g=git
 alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 alias ts="perl -e 'use Time::HiRes; while(<>) { print sprintf(\"%-17s \", Time::HiRes::time),"'" "'".\$_;}'"
 alias git=hub
 alias gob="go build"
-alias gog="go get -u -v"
 alias gor="go run"
 alias got="go test"
 #an alias to show the latest commit for each file. This also shows which files are in git
 alias gl='for i in $(ls -A);do printf "%-32s %s\n" "$i" "$(git log -n1 --oneline $i)";done'
 
-alias clsps='docker ps -a |tail -n +2|tr -s " "|cut -d" " -f 1|xargs docker rm -f'
-alias clsim='docker images|tail -n +2|tr -s " "|cut -d" " -f 3|xargs docker rmi -f'
 alias d='docker'
 alias dc='docker-compose'
+alias clsps='docker ps -a |tail -n +2|tr -s " "|cut -d" " -f 1|xargs docker rm -f'
+alias clsim='docker images|tail -n +2|tr -s " "|cut -d" " -f 3|xargs docker rmi -f'
+alias dev='docker run -v ~/dev/home:/home -v ~/dev/root:/root -it dev /bin/bash --login'
+
 
 source ~/dev/home/projects/src/github.com/kavehmz/boost/git-prompt.sh
 PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
-
 . ~/dev/home/projects/src/github.com/kavehmz/boost/git-completion.bash
 
 complete -o default -o nospace -F _git g
-
 
 #touch ~/.bash_sessions_disable
 # on mac this tends to accumulate and is make bash load slower
 find ~/.bash_sessions/ -mtime +3 -type f -delete
 
 shopt -s cdspell
-
-ssh-add -A &> /dev/null
