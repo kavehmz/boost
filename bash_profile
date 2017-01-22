@@ -33,26 +33,30 @@ cdp() {
     [ "$1" != "" ] && cd $(echo $1|sed 's/\//*\//g'|sed 's/$/*/')
 }
 
-alias cdd='cd ~/dev/'
-alias c="perl ~/dev/home/projects/src/github.com/kavehmz/boost/cmd.pl"
-alias gg="git grep -in"
-alias ff="find .  | grep -i"
-alias g=git
-alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 alias ts="perl -e 'use Time::HiRes; while(<>) { print sprintf(\"%-17s \", Time::HiRes::time),"'" "'".\$_;}'"
+alias cdd='cd ~/dev/'
+alias ff="find .| grep -i"
+
+alias gg="git grep -in"
+alias g=git
 alias git=hub
-alias gob="go build"
-alias gor="go run"
-alias got="go test"
+alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 #an alias to show the latest commit for each file. This also shows which files are in git
 alias gl='for i in $(ls -A);do printf "%-32s %s\n" "$i" "$(git log -n1 --oneline $i)";done'
 
+alias gob="go build"
+alias gor="go run"
+alias got="go test"
+
 alias d='docker'
 alias dc='docker-compose'
-alias clsps='docker ps -a |tail -n +2|tr -s " "|cut -d" " -f 1|xargs docker rm -f'
-alias clsim='docker images|tail -n +2|tr -s " "|cut -d" " -f 3|xargs docker rmi -f'
+alias dps='docker ps'
+alias dim='docker images'
+alias dcls='docker ps -a |tail -n +2|tr -s " "|cut -d" " -f 1|xargs docker rm -f'
+alias dclsi='docker images|tail -n +2|tr -s " "|cut -d" " -f 3|xargs docker rmi -f'
+alias dbuild='cd ~/dev/docker;docker build -t dev:latest --rm .'
 alias dev='docker run -v ~/dev/home:/home -v ~/dev/root:/root -it dev /bin/bash --login'
-
+alias drun='docker run -v ~/dev/home:/home -v ~/dev/root:/root -it dev'
 
 source ~/dev/home/projects/src/github.com/kavehmz/boost/git-prompt.sh
 PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
