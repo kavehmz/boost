@@ -28,4 +28,4 @@
 [commit]
 	gpgsign = true
 [gpg]
-	program = /Users/kaveh/dev/shortcuts/gpg.sh
+	program = /Users/kaveh/dev/home/projects/src/github.com/kavehmz/boost/gpg.sh
