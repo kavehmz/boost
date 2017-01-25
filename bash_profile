@@ -54,9 +54,9 @@ alias dps='docker ps'
 alias dim='docker images'
 alias dcls='docker ps -a |tail -n +2|tr -s " "|cut -d" " -f 1|xargs docker rm -f'
 alias dclsi='docker images|tail -n +2|tr -s " "|cut -d" " -f 3|xargs docker rmi -f'
-alias dbuild='cd ~/dev/docker;docker build -t dev:latest .'
-alias dev='docker run -v ~/dev/home:/home -v ~/dev/root:/root -it dev /bin/bash --login'
-alias drun='docker run -v ~/dev/home:/home -v ~/dev/root:/root -it dev'
+alias dbuild='cd ~/dev/docker;docker build -t dev:latest --rm .'
+alias dev='docker run --rm -v ~/dev/home:/home -v ~/dev/root:/root -it dev /bin/bash --login'
+alias drun='docker run --rm -v ~/dev/home:/home -v ~/dev/root:/root -it dev'
 
 source ~/dev/home/projects/src/github.com/kavehmz/boost/git-prompt.sh
 PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
