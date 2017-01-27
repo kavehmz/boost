@@ -58,12 +58,21 @@ alias dbuild='cd ~/dev/docker;docker build -t dev:latest --rm .'
 alias dev='docker run --rm -v ~/dev/home:/home -v ~/dev/root:/root -it dev /bin/bash --login'
 alias drun='docker run --rm -v ~/dev/home:/home -v ~/dev/root:/root -it dev'
 
-source ~/dev/home/projects/src/github.com/kavehmz/boost/git-prompt.sh
+mkdir -p ~/.kmz
+
+[ ! -f  ~/.kmz/git-prompt.sh ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh' -o ~/.kmz/git-prompt.sh
+source ~/.kmz/git-prompt.sh
 PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
-. ~/dev/home/projects/src/github.com/kavehmz/boost/git-completion.bash
-
+[ ! -f  ~/.kmz/git-completion.bash ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash' -o ~/.kmz/git-completion.bash
+source ~/.kmz/git-completion.bash
 complete -o default -o nospace -F _git g
+
+[ ! -f  ~/.kmz/docker.sh ] && curl 'https://raw.githubusercontent.com/docker/docker/master/contrib/completion/bash/docker' -o ~/.kmz/docker.sh
+source ~/.kmz/docker.sh
+
+[ ! -f  ~/.kmz/docker-compose.sh ] && curl 'https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose' -o ~/.kmz/docker-compose.sh
+source ~/.kmz/docker-compose.sh
 
 #touch ~/.bash_sessions_disable
 # on mac this tends to accumulate and is make bash load slower
