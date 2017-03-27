@@ -9,8 +9,12 @@ gs() {
 	for i in *; do [ -d $i ] || continue;echo "repo:$i"; cd "$i"; eval git ${*:0};cd ..;done
 }
 
+#parallel
+gsp() {
+    ls -d */|xargs -L1 -I{} -P20  bash -c "cd {} && git $1;echo '{} done'"
+}
 gps() {
-	GIT_TOKEN=$(cat ~/.boost/git_token)
+	GIT_TOKEN=$(cat ~/dev/home/share/secret/github_token)
 	GIT_ORG="$(basename $(pwd))"
 	for i in *; do [ -d $i ] || continue;echo "repo:$i"; cd "$i"; REPO="$(basename $(pwd))"; curl --silent "https://api.github.com/repos/$GIT_ORG/$REPO/pulls?access_token=$GIT_TOKEN"|grep head -A1|grep label|cut -d'"' -f4|cat -n ;cd ..;done
 }
@@ -38,6 +42,7 @@ alias cdd='cd ~/dev/'
 alias ff="find .| grep -i"
 
 alias gg="git grep -in"
+alias gm="git fetch origin;git merge --no-ff origin/master"
 alias g=git
 alias git=hub
 alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
@@ -55,8 +60,9 @@ alias dim='docker images'
 alias dcls='docker ps -a |tail -n +2|tr -s " "|cut -d" " -f 1|xargs docker rm -f'
 alias dclsi='docker images|tail -n +2|tr -s " "|cut -d" " -f 3|xargs docker rmi -f'
 alias dbuild='cd ~/dev/docker;docker build -t dev:latest --rm .'
-alias dev='docker run --rm -v ~/dev/home:/home -v ~/dev/root:/root -it dev /bin/bash --login'
+alias dev='docker run --rm -v ~/dev/home:/home -v ~/dev/root:/root -v ~/dev/home/projects/bin-linux:/home/projects/bin -it dev /bin/bash --login'
 alias drun='docker run --rm -v ~/dev/home:/home -v ~/dev/root:/root -it dev'
+alias stime='docker run --rm --privileged dev date -s "@`date +%s`"'
 
 mkdir -p ~/.kmz
 

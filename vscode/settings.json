@@ -11,5 +11,7 @@
         "Vagrantfile": "ruby",
         "*.erb": "ruby",
         "bash_profile": "shellscript"
-    },"editor.fontFamily": "Go Mono, Menlo, Monaco, 'Courier New', monospace"
+    },
+    "editor.fontFamily": "Go Mono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.wordWrap": true
 }
