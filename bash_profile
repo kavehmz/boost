@@ -8,7 +8,8 @@ gs() {
 
 #parallel
 gsp() {
-    ls -d */|xargs -L1 -I{} -P20  bash -c "cd {} && git $1;echo '{} done'"
+    echo "Running 'git ${*:0}' on all directories in current path"
+    ls -d */|xargs -L1 -I{} -P20  bash -c "cd {} && git ${*:0};echo '{} done'"
 }
 gps() {
 	GIT_TOKEN=$(cat ~/dev/home/share/secret/github_token)
