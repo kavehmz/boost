@@ -3,14 +3,15 @@ export GOPATH=~/dev/home/projects
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:~/dev/opt/hub"
 
 gs() {
-	for i in *; do [ -d $i ] || continue;echo "repo:$i"; cd "$i"; eval git ${*:0};cd ..;done
+	for i in *; do [ -d $i ] || continue;echo "repo:$i"; cd "$i"; bash -c "git ${*:0}";cd ..;done
 }
 
 #parallel
 gsp() {
     echo "Running 'git ${*:0}' on all directories in current path"
-    ls -d */|xargs -L1 -I{} -P20  bash -c "cd {} && git ${*:0};echo '{} done'"
+    ls -d */|xargs -L1 -I{} -P40  bash -c "cd {} && git ${*:0};echo '{} done'"
 }
+
 gps() {
 	GIT_TOKEN=$(cat ~/dev/home/share/secret/github_token)
 	GIT_ORG="$(basename $(pwd))"
@@ -47,7 +48,7 @@ alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 #an alias to show the latest commit for each file. This also shows which files are in git
 alias gl='for i in $(ls -A);do printf "%-32s %s\n" "$i" "$(git log -n1 --oneline $i)";done'
 
-alias gob="go build"
+alias gob="go build -x"
 alias gor="go run"
 alias got="go test"
 
@@ -66,7 +67,7 @@ mkdir -p ~/.kmz
 
 [ ! -f  ~/.kmz/git-prompt.sh ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh' -o ~/.kmz/git-prompt.sh
 source ~/.kmz/git-prompt.sh
-PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+PS1='[\u@kmz \W$(__git_ps1 " (%s)")]\$ '
 
 [ ! -f  ~/.kmz/git-completion.bash ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash' -o ~/.kmz/git-completion.bash
 source ~/.kmz/git-completion.bash

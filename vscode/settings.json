@@ -13,5 +13,15 @@
         "bash_profile": "shellscript"
     },
     "editor.fontFamily": "Go Mono, Menlo, Monaco, 'Courier New', monospace",
-    "editor.wordWrap": true
+    "editor.wordWrap": true,
+    "[cpp]": {
+        "editor.quickSuggestions": false
+    },
+    "[c]": {
+        "editor.quickSuggestions": false
+    },
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#444444"
+    },
+    "window.zoomLevel": 0
 }
