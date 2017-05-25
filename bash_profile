@@ -28,7 +28,7 @@ glint() {
 # (cdg k/bo) => (cdg; cd k*/bo*)
 cdg() {
     cd ~/dev/home/projects/src/github.com
-    [ "$1" != "" ] && cd $(echo $1|sed 's/\//*\//g'|sed 's/$/*/')
+    [ "$1" != "" ] && cd $(echo $1|sed 's/\//*\//g'|sed 's/-/*/g'|sed 's/$/*/')
 }
 
 cdp() {
@@ -39,6 +39,8 @@ cdp() {
 alias ts="perl -e 'use Time::HiRes; while(<>) { print sprintf(\"%-17s \", Time::HiRes::time),"'" "'".\$_;}'"
 alias cdd='cd ~/dev/'
 alias ff="find .| grep -i"
+alias e=code
+alias er=code -r
 
 alias gg="git grep -in"
 alias gm="git fetch origin;git merge --no-ff origin/master"
@@ -62,7 +64,7 @@ alias dbuild='cd ~/dev/docker;docker build -t dev:latest --rm .'
 alias dev='docker run --rm -v ~/dev/home:/home -v ~/dev/root:/root -v ~/dev/home/projects/bin-linux:/home/projects/bin -it dev /bin/bash --login'
 alias drun='docker run --rm -v ~/dev/home:/home -v ~/dev/root:/root -it dev'
 alias stime='docker run --rm --privileged dev date -s "@`date +%s`"'
-
+alias remote='ssh remote'
 mkdir -p ~/.kmz
 
 [ ! -f  ~/.kmz/git-prompt.sh ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh' -o ~/.kmz/git-prompt.sh
@@ -84,3 +86,6 @@ source ~/.kmz/docker-compose.sh
 find ~/.bash_sessions/ -mtime +3 -type f -delete
 
 shopt -s cdspell
+
+# https://developer.github.com/guides/using-ssh-agent-forwarding/
+/usr/bin/ssh-add -K  ~/.ssh/id_rsa
