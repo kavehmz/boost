@@ -40,7 +40,7 @@ alias ts="perl -e 'use Time::HiRes; while(<>) { print sprintf(\"%-17s \", Time::
 alias cdd='cd ~/dev/'
 alias ff="find .| grep -i"
 alias e=code
-alias ec=code -r
+alias ec='code -r'
 
 alias gg="git grep -in"
 alias gm="git fetch origin;git merge --no-ff origin/master"
