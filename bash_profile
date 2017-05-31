@@ -12,10 +12,14 @@ gsp() {
     ls -d */|xargs -L1 -I{} -P40  bash -c "cd {} && git ${*:0};echo '{} done'"
 }
 
-gps() {
-	GIT_TOKEN=$(cat ~/dev/home/share/secret/github_token)
-	GIT_ORG="$(basename $(pwd))"
-	for i in *; do [ -d $i ] || continue;echo "repo:$i"; cd "$i"; REPO="$(basename $(pwd))"; curl --silent "https://api.github.com/repos/$GIT_ORG/$REPO/pulls?access_token=$GIT_TOKEN"|grep head -A1|grep label|cut -d'"' -f4|cat -n ;cd ..;done
+# gapi forks kavehmz/prime
+# gapi rate_limit
+gapi() {
+	local GIT_TOKEN=$(cat ~/dev/home/share/secret/github_token)
+    local CMD="$1"
+    local GIT_ORG_REPO=''
+    [ "$2" != "" ] && GIT_ORG_REPO="/repos/$2"
+	curl --silent "https://api.github.com$GIT_ORG_REPO/$CMD?access_token=$GIT_TOKEN"
 }
 
 glint() {
