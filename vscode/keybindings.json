@@ -1,75 +1,77 @@
 // Place your key bindings in this file to overwrite the defaults
+// Place your key bindings in this file to overwrite the defaults
 [
     {
-        "key": "shift+cmd+a",
+        "key": "shift+ctrl+a",
         "command": "editor.action.selectHighlights",
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+cmd+down",
+        "key": "ctrl+alt+down",
         "command": "editor.action.moveLinesDownAction",
         "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "ctrl+cmd+up",
+        "key": "ctrl+alt+up",
         "command": "editor.action.moveLinesUpAction",
         "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "alt+cmd+.",
-        "command": "editor.action.openDeclarationToTheSide"
-    },
-    {
-        "key": "alt+cmd+,",
-        "command": "editor.action.previewDeclaration"
-    },
-    {
-        "key": "shift+cmd+left",
-        "command": "workbench.action.previousEditor"
-    },
-    {
-        "key": "shift+cmd+right",
-        "command": "workbench.action.nextEditor"
-    },
-    {
-        "key": "shift+cmd+d",
+        "key": "shift+ctrl+d",
         "command": "editor.action.copyLinesDownAction",
         "when": "editorTextFocus"
     },
     {
-        "key": "shift+cmd+6",
-        "command": "workbench.action.selectTheme",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "cmd+shift+r",
+        "key": "ctrl+shift+r",
         "command": "workbench.action.showAllSymbols"
     },
     {
-        "key": "cmd+r",
+        "key": "ctrl+r",
         "command": "workbench.action.gotoSymbol"
     },
     {
-        "key": "cmd+alt+/",
+        "key": "ctrl+alt+/",
         "command": "editor.action.goToDeclaration"
     },
     {
-        "key": "cmd+-",
+        "key": "alt+-",
         "command": "workbench.action.navigateBack"
     },
     {
-        "key": "ctrl+shift+a",
+        "key": "ctrl+a",
         "command": "cursorHomeSelect",
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+shift+e",
+        "key": "ctrl+e",
         "command": "cursorEndSelect",
         "when": "editorTextFocus"
     },
     {
-        "key": "cmd+shift+l",
+        "key": "ctrl+shift+l",
         "command": "editor.action.insertCursorAtEndOfEachLineSelected",
         "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "shift+ctrl+p",
+        "command": "workbench.action.showCommands"
+    },
+    {
+        "key": "shift+ctrl+f",
+        "command": "workbench.action.replaceInFiles",
+        "when": "!searchInputBoxFocus"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "editor.action.startFindReplaceAction"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "editor.action.nextMatchFindAction",
+        "when": "editorFocus"
     }
 ]

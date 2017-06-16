@@ -1,12 +1,12 @@
 [user]
 	name = Kaveh Mousavi Zamani
-	email = kavehmz@gmail.com
-	signingkey = ED8AE023
+	email = k.mousavizamani@travelaudience.com
+	signingkey = 310313825AC9FD27CC60EB4E5215B529EE726289
 [color]
 	ui = auto
 	status = auto
 [core]
-	excludesfile = /Users/kaveh/.gitignore_global
+	excludesfile = /home/kaveh/.gitignore_global
 [alias]
 	a = add
 	b = branch
@@ -27,5 +27,4 @@
 	insteadOf = https://github.com/
 [commit]
 	gpgsign = true
-[gpg]
-	program = /Users/kaveh/dev/home/projects/src/github.com/kavehmz/boost/gpg.sh
+

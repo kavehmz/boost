@@ -85,11 +85,4 @@ source ~/.kmz/docker.sh
 [ ! -f  ~/.kmz/docker-compose.sh ] && curl 'https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose' -o ~/.kmz/docker-compose.sh
 source ~/.kmz/docker-compose.sh
 
-#touch ~/.bash_sessions_disable
-# on mac this tends to accumulate and is make bash load slower
-find ~/.bash_sessions/ -mtime +3 -type f -delete
-
 shopt -s cdspell
-
-# https://developer.github.com/guides/using-ssh-agent-forwarding/
-/usr/bin/ssh-add -K  ~/.ssh/id_rsa
