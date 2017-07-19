@@ -49,29 +49,5 @@
     {
         "key": "shift+ctrl+p",
         "command": "workbench.action.showCommands"
-    },
-    {
-        "key": "shift+ctrl+f",
-        "command": "workbench.action.replaceInFiles",
-        "when": "!searchInputBoxFocus"
-    },
-    {
-        "key": "ctrl+f",
-        "command": "editor.action.startFindReplaceAction"
-    },
-    {
-        "key": "ctrl+g",
-        "command": "editor.action.nextMatchFindAction",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+shift+g",
-        "command": "editor.action.previousMatchFindAction",
-        "when": "editorFocus"
-    },
-    {
-        "key": "shift+f3",
-        "command": "-editor.action.previousMatchFindAction",
-        "when": "editorFocus"
     }
 ]

@@ -32,7 +32,8 @@ glint() {
 # (cdg k/bo) => (cdg; cd k*/bo*)
 cdg() {
     cd ~/dev/home/projects/src/github.com
-    [ "$1" != "" ] && cd $(echo $1|sed 's/\//*\//g'|sed 's/-/*/g'|sed 's/$/*/')
+    local WDIR=$(echo $1|sed 's/\//*\//g'|sed 's/-/*/g'|sed 's/$/*/')
+    [ "$1" != "" ] && cd $(ls -d $WDIR|head -n1)
 }
 
 cdp() {
@@ -70,6 +71,13 @@ alias drun='docker run --rm -v ~/dev/home:/home -v ~/dev/root:/root -it dev'
 alias stime='docker run --rm --privileged dev date -s "@`date +%s`"'
 alias remote='ssh remote'
 mkdir -p ~/.kmz
+
+# alias gc="source $(dirname $(readlink -f $0))/gc.sh"
+alias gc="source ~/dev/home/projects/src/github.com/kavehmz/boost/gc.sh"
+alias gcp='gc ls'
+alias gcs='gc sel'
+alias gci='gc ils'
+alias gch='gc ssh'
 
 [ ! -f  ~/.kmz/git-prompt.sh ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh' -o ~/.kmz/git-prompt.sh
 source ~/.kmz/git-prompt.sh
