@@ -49,5 +49,15 @@
     {
         "key": "shift+ctrl+p",
         "command": "workbench.action.showCommands"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "editor.action.nextMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "f3",
+        "command": "-editor.action.nextMatchFindAction",
+        "when": "editorFocus"
     }
 ]

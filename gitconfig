@@ -21,7 +21,7 @@
 	p = push origin HEAD
 	s = status
 	pr = pull-request
-	pp = push kavehmz HEAD
+	pp = push kavehmzta HEAD
 	rst = reset --hard origin/master
 [url "git@github.com:"]
 	insteadOf = https://github.com/

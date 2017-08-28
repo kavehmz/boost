@@ -78,6 +78,7 @@ alias gcp='gc ls'
 alias gcs='gc sel'
 alias gci='gc ils'
 alias gch='gc ssh'
+alias vpn='(gc sel 5;gcloud beta compute firewall-rules delete  kmz-tmp;gcloud beta compute firewall-rules create kmz-tmp --network core --allow 22 --source-ranges "$(dig +short myip.opendns.com @resolver1.opendns.com)";ssh "$(cat ~/.vpn_server)";gcloud beta compute firewall-rules delete  kmz-tmp)'
 
 [ ! -f  ~/.kmz/git-prompt.sh ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh' -o ~/.kmz/git-prompt.sh
 source ~/.kmz/git-prompt.sh
