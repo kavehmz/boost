@@ -74,8 +74,6 @@ mkdir -p ~/.kmz
 
 # alias gc="source $(dirname $(readlink -f $0))/gc.sh"
 alias gc="source ~/dev/home/projects/src/github.com/kavehmz/boost/gc.sh"
-alias k8s="source ~/dev/home/projects/src/github.com/kavehmz/boost/k8s.sh"
-alias k='kubectl "--context=${KUBECTL_CONTEXT:-$(kubectl config current-context)}" ${KUBECTL_NAMESPACE/[[:alnum:]-]*/--namespace=${KUBECTL_NAMESPACE}}'
 alias gcp='gc ls'
 alias gcs='gc sel'
 alias gci='gc ils'
