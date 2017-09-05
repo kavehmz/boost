@@ -1,3 +1,19 @@
+function find_and_ssh {
+    local SRV="$1"
+    local CMD=$2
+    local SERVER=$(gcloud compute instances list|cat -n|egrep "\s+$SRV\s"|perl -e '$l=<>;chomp $l;$l=~ s/^\s+\d+\s(.*?)\s+(.*?)\s+.*/$1 --zone $2/g;print $l,"\n"')
+    echo "ssh into [kmousavizamani@$SERVER]"
+
+    [ "$CMD" == "" ] && gcloud compute ssh kmousavizamani@$SERVER
+    [ "$CMD" != "" ] && gcloud compute ssh kmousavizamani@$SERVER --command="$CMD"
+}
+
+function find_and_set_k8s {
+    local CONTAINER=$(gcloud container clusters list|cat -n|egrep "\s+$1\s"|perl -e '$l=<>;chomp $l;$l=~ s/^\s+\d+\s(.*?)\s+(.*?)\s+.*/$1 --zone $2/g;print $l,"\n"')
+    echo "clusters get-credentials for [$CONTAINER]"
+    gcloud container clusters get-credentials $CONTAINER
+}
+
 case "$1" in
   "ls")
     echo "list of projects"
@@ -12,7 +28,7 @@ case "$1" in
     gcloud compute instances list|cat -n
     ;;
   "ssh")
-    find_and_ssh $2
+    find_and_ssh "$2" "$3"
     ;;
 
   "cls")
@@ -33,15 +49,3 @@ case "$1" in
     echo "gc csel [Identifier] # get credentials for a container"
     ;;
 esac
-
-function find_and_ssh {
-    local SERVER=$(gcloud compute instances list|cat -n|egrep "\s+$1\s"|perl -e '$l=<>;chomp $l;$l=~ s/^\s+\d+\s(.*?)\s+(.*?)\s+.*/$1 --zone $2/g;print $l,"\n"')
-    echo "ssh into [kmousavizamani@$SERVER]"
-    gcloud compute ssh kmousavizamani@$SERVER
-}
-
-function find_and_set_k8s {
-    local CONTAINER=$(gcloud container clusters list|cat -n|egrep "\s+$1\s"|perl -e '$l=<>;chomp $l;$l=~ s/^\s+\d+\s(.*?)\s+(.*?)\s+.*/$1 --zone $2/g;print $l,"\n"')
-    echo "clusters get-credentials for [$CONTAINER]"
-    gcloud container clusters get-credentials $CONTAINER
-}
