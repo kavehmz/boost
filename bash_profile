@@ -77,6 +77,7 @@ alias gc="source ~/dev/home/projects/src/github.com/kavehmz/boost/gc.sh"
 alias k8s="kubectl config view -o template --template='{{ index . "'"current-context"'" }}'|sed -e 's/^.*_//g';echo"
 alias vpn='(gc sel 5;gcloud beta compute firewall-rules delete  kmz-tmp;gcloud beta compute firewall-rules create kmz-tmp --network core --allow 22 --source-ranges "$(dig +short myip.opendns.com @resolver1.opendns.com)";ssh "$(cat ~/.vpn_server)";gcloud beta compute firewall-rules delete  kmz-tmp)'
 alias openvpn="sudo openvpn ~/Office/openvpn.config"
+alias teew='tee --output-error warn'
 
 [ ! -f  ~/.kmz/git-prompt.sh ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh' -o ~/.kmz/git-prompt.sh
 source ~/.kmz/git-prompt.sh
