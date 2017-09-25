@@ -32,7 +32,7 @@ glint() {
 # (cdg k/bo) => (cdg; cd k*/bo*)
 cdg() {
     cd ~/dev/home/projects/src/github.com
-    local WDIR=$(echo $1|sed 's/\//*\//g'|sed 's/-/*/g'|sed 's/$/*/')
+    local WDIR=$(echo $1|sed 's/\//*\/*/g'|sed 's/-/*/g'|sed 's/$/*/')
     [ "$1" != "" ] && cd $(ls -d $WDIR|head -n1)
 }
 
