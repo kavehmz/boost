@@ -41,6 +41,15 @@ cdp() {
     [ "$1" != "" ] && cd $(echo $1|sed 's/\//*\//g'|sed 's/$/*/')
 }
 
+# k8s: get pod will add -n namespace in output for shorter usage
+# kubectl logs $(getpod dev dbs)
+function getpod {
+    local NS=$1
+    local NAME=$2
+    local ID=$(kubectl  -n dev get pods|grep dbs|cut -d' ' -f 1)
+    echo -n "-n $1 $ID"
+}
+
 alias ts="perl -e 'use Time::HiRes; while(<>) { print sprintf(\"%-17s \", Time::HiRes::time),"'" "'".\$_;}'"
 alias cdd='cd ~/dev/'
 alias ff="find .| grep -i"
