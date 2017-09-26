@@ -46,7 +46,7 @@ cdp() {
 function getpod {
     local NS=$1
     local NAME=$2
-    local ID=$(kubectl  -n dev get pods|grep dbs|cut -d' ' -f 1)
+    local ID=$(kubectl  -n $NS get pods|grep $NAME|cut -d' ' -f 1)
     echo -n "-n $1 $ID"
 }
 
