@@ -3,13 +3,13 @@ export GOPATH=~/dev/home/projects
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:~/dev/opt/hub"
 
 gs() {
-	for i in *; do [ -d $i ] || continue;echo "repo:$i"; cd "$i"; bash -c "git ${*:0}";cd ..;done
+	for i in *; do [ -d $i ] || continue;echo "repo:$i"; (cd "$i"; bash -c "git ${*:1}");done
 }
 
 #parallel
 gsp() {
-    echo "Running 'git ${*:0}' on all directories in current path"
-    ls -d */|xargs -L1 -I{} -P40  bash -c "cd {} && git ${*:0};echo '{} done'"
+    echo "Running 'git ${*:1}' on all directories in current path"
+    ls -d */|xargs -L1 -I{} -P40  bash -c "cd {} && git ${*:1};echo '{} done'"
 }
 
 # gapi forks kavehmz/prime
