@@ -41,12 +41,21 @@ cdp() {
     [ "$1" != "" ] && cd $(echo $1|sed 's/\//*\//g'|sed 's/$/*/')
 }
 
+proxy_p8s() {
+    local PROMETHEUS_POD=$(kubectl get pods --all-namespaces -l "app=prometheus,component=server" -o jsonpath="{.items[0].metadata.name}")
+    local NAMESPACE=$(kubectl get pods --all-namespaces -l "app=prometheus,component=server" -o jsonpath="{.items[0].metadata.namespace}")
+    kubectl --namespace $NAMESPACE port-forward $PROMETHEUS_POD 9090
+}
+
+proxy_k8s() {
+    kubectl proxy
+}
 # k8s: get pod will add -n namespace in output for shorter usage
 # kubectl logs $(getpod dev dbs)
 function getpod {
     local NS=$1
     local NAME=$2
-    local ID=$(kubectl  -n $NS get pods|grep $NAME|cut -d' ' -f 1)
+    local ID=$(kubectl  -n $NS get pods|grep $NAME|tail -1|cut -d' ' -f 1)
     echo -n "-n $1 $ID"
 }
 

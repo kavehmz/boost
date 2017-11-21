@@ -56,6 +56,11 @@
         "when": "editorFocus"
     },
     {
+        "key": "shift+ctrl+g",
+        "command": "editor.action.previousMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
         "key": "f3",
         "command": "-editor.action.nextMatchFindAction",
         "when": "editorFocus"
