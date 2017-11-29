@@ -17,5 +17,6 @@
     "workbench.colorCustomizations": {
         "statusBar.background": "#444444"
     },
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "editor.minimap.enabled": false
 }
