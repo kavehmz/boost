@@ -70,7 +70,7 @@ alias drun='docker run --rm -v ~/dev/home:/home -v ~/dev/root:/root -it dev'
 alias stime='docker run --rm --privileged dev date -s "@`date +%s`"'
 alias remote='ssh remote'
 alias runjs='docker run -ti --rm --name node-server -v "$PWD":/usr/src/app -w /usr/src/app --expose 8080 -p 127.0.0.1:8080:8080 node:8.9.3 node'
-alias stopjs='docker stop -t1 node-server'
+alias stopjs='docker stop -t0 node-server'
 
 mkdir -p ~/.kmz
 
