@@ -96,4 +96,3 @@ shopt -s cdspell
 
 # https://developer.github.com/guides/using-ssh-agent-forwarding/
 /usr/bin/ssh-add -K  ~/.ssh/id_rsa
-/usr/bin/ssh-add -K  ~/.ssh/id_rsa_ta
