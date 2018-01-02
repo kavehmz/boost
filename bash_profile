@@ -68,7 +68,7 @@ alias ec='code -r'
 alias gg="git grep -in"
 alias gm="git fetch origin;git merge --no-ff origin/master"
 alias g=git
-alias git=hub
+alias git="hub"
 alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 #an alias to show the latest commit for each file. This also shows which files are in git
 alias gl='for i in $(ls -A);do printf "%-32s %s\n" "$i" "$(git log -n1 --oneline $i)";done'
@@ -90,7 +90,6 @@ alias stime='docker run --rm --privileged dev date -s "@`date +%s`"'
 alias remote='ssh remote'
 mkdir -p ~/.kmz
 
-# alias gc="source $(dirname $(readlink -f $0))/gc.sh"
 alias gc="source ~/dev/home/projects/src/github.com/kavehmz/boost/gc.sh"
 alias k8s="kubectl config view -o template --template='{{ index . "'"current-context"'" }}'|sed -e 's/^.*_//g';echo"
 alias vpn='(gc sel 5;gcloud beta compute firewall-rules delete  kmz-tmp;gcloud beta compute firewall-rules create kmz-tmp --network core --allow 22 --source-ranges "$(dig +short myip.opendns.com @resolver1.opendns.com)";ssh "$(cat ~/.vpn_server)";gcloud beta compute firewall-rules delete  kmz-tmp)'
@@ -99,15 +98,5 @@ alias openvpn="sudo openvpn ~/Office/openvpn.config"
 [ ! -f  ~/.kmz/git-prompt.sh ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh' -o ~/.kmz/git-prompt.sh
 source ~/.kmz/git-prompt.sh
 PS1='[\u@kmz \W$(__git_ps1 " (%s)")]\$ '
-
-[ ! -f  ~/.kmz/git-completion.bash ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash' -o ~/.kmz/git-completion.bash
-source ~/.kmz/git-completion.bash
-complete -o default -o nospace -F _git g
-
-[ ! -f  ~/.kmz/docker.sh ] && curl 'https://raw.githubusercontent.com/docker/docker/master/contrib/completion/bash/docker' -o ~/.kmz/docker.sh
-source ~/.kmz/docker.sh
-
-[ ! -f  ~/.kmz/docker-compose.sh ] && curl 'https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose' -o ~/.kmz/docker-compose.sh
-source ~/.kmz/docker-compose.sh
 
 shopt -s cdspell
