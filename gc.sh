@@ -36,7 +36,8 @@ case "$1" in
     gcloud container clusters list|cat -n
     ;;
   "csel")
-    find_and_set_k8s $2
+    [ "$2" == "0" ] && kubectl config use-context minikube
+    [ "$2" != "0" ] && find_and_set_k8s $2
     ;;
   *)
     echo "Note: [Identifier] is a number or name in the list"

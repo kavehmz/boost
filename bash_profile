@@ -68,6 +68,8 @@ alias ec='code -r'
 alias gg="git grep -in"
 alias gm="git fetch origin;git merge --no-ff origin/master"
 alias g=git
+_completion_loader git
+complete -o bashdefault -o default -o nospace -F _git g
 alias git="hub"
 alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 #an alias to show the latest commit for each file. This also shows which files are in git
@@ -99,4 +101,7 @@ alias openvpn="sudo openvpn ~/Office/openvpn.config"
 source ~/.kmz/git-prompt.sh
 PS1='[\u@kmz \W$(__git_ps1 " (%s)")]\$ '
 
+
+source <(kubectl completion bash)
+source <(helm completion bash)
 shopt -s cdspell

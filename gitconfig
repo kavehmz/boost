@@ -7,6 +7,7 @@
 	status = auto
 [core]
 	excludesfile = /home/kaveh/.gitignore_global
+	editor = 'gedit'
 [alias]
 	a = add
 	b = branch
@@ -21,10 +22,9 @@
 	p = push origin HEAD
 	s = status
 	pr = pull-request
-	pp = push kavehmzta HEAD
+	pp = push kavehmz HEAD
 	rst = reset --hard origin/master
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [commit]
 	gpgsign = true
-
