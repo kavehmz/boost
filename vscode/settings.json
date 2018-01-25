@@ -18,5 +18,7 @@
         "statusBar.background": "#444444"
     },
     "window.zoomLevel": 0,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.openEditors.visible": 0
 }
