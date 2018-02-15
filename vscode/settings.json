@@ -20,5 +20,6 @@
     "window.zoomLevel": 0,
     "workbench.editor.openPositioning": "last",
     "workbench.activityBar.visible": true,
-    "explorer.openEditors.visible": 0
+    "explorer.openEditors.visible": 0,
+    "editor.minimap.enabled": false
 }

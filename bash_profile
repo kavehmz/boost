@@ -41,15 +41,35 @@ cdp() {
     [ "$1" != "" ] && cd $(echo $1|sed 's/\//*\//g'|sed 's/$/*/')
 }
 
-proxy_p8s() {
-    local PROMETHEUS_POD=$(kubectl get pods --all-namespaces -l "app=prometheus,component=server" -o jsonpath="{.items[0].metadata.name}")
-    local NAMESPACE=$(kubectl get pods --all-namespaces -l "app=prometheus,component=server" -o jsonpath="{.items[0].metadata.namespace}")
-    kubectl --namespace $NAMESPACE port-forward $PROMETHEUS_POD 9090
+KTAIL_RUNNNIG_PIDS=()
+
+cancel_ktail() {
+    echo "DFSFDSFDSFDSFDSFDS"
+    for p in "${KTAIL_RUNNNIG_PIDS[@]}"
+    do
+        kill "$p"
+    done
 }
 
-proxy_k8s() {
-    kubectl proxy
+ktail() {
+    local NAMESPACE="$1"
+    local SELECTOR="$2"
+    local NS=${NAMESPACE:=default}
+
+    local KTAIL_RUNNNIG_PIDS=()
+    trap cancel_ktail SIGINT
+    for i in `kubectl --namespace "$NS" get pod --selector="$SELECTOR" -o json|jq -r .items[].metadata.name`;
+    do
+        echo test $i;
+        kubectl --namespace "$NS" logs -f $i &
+        KTAIL_RUNNNIG_PIDS+=($!)
+    done
+    wait
+    echo "done tailing"
+    trap - SIGINT
+
 }
+
 # k8s: get pod will add -n namespace in output for shorter usage
 # kubectl logs $(getpod dev dbs)
 function getpod {
@@ -97,9 +117,11 @@ alias k8s="kubectl config view -o template --template='{{ index . "'"current-con
 alias vpn='(gc sel 5;gcloud beta compute firewall-rules delete  kmz-tmp;gcloud beta compute firewall-rules create kmz-tmp --network core --allow 22 --source-ranges "$(dig +short myip.opendns.com @resolver1.opendns.com)";ssh "$(cat ~/.vpn_server)";gcloud beta compute firewall-rules delete  kmz-tmp)'
 alias openvpn="sudo openvpn ~/Office/openvpn.config"
 
+alias dynosh="grep 'average' /data/dynos/*/dyno.*|egrep '([5-9][0-9]|[0-9]{3})\.'"
+
 [ ! -f  ~/.kmz/git-prompt.sh ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh' -o ~/.kmz/git-prompt.sh
 source ~/.kmz/git-prompt.sh
-PS1='[\u@kmz \W$(__git_ps1 " (%s)")]\$ '
+PS1='[\u@kmz-$(k8s) \W$(__git_ps1 " (%s)")]\$ '
 
 
 source <(kubectl completion bash)
