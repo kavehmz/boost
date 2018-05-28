@@ -1,6 +1,6 @@
 export GOROOT=~/dev/opt/go/goroot
 export GOPATH=~/dev/home/projects
-export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:~/dev/opt/hub"
+export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:~/dev/opt/hub:~/.local/bin"
 
 gs() {
 	for i in *; do [ -d $i ] || continue;echo "repo:$i"; (cd "$i"; bash -c "git ${*:1}");done
@@ -79,6 +79,7 @@ function getpod {
     echo -n "-n $1 $ID"
 }
 
+alias update='sudo apt-get update;sudo apt-get upgrade'
 alias ts="perl -e 'use Time::HiRes; while(<>) { print sprintf(\"%-17s \", Time::HiRes::time),"'" "'".\$_;}'"
 alias cdd='cd ~/dev/'
 alias ff="find .| grep -i"
@@ -127,3 +128,6 @@ PS1='[\u@kmz-$(k8s) \W$(__git_ps1 " (%s)")]\$ '
 source <(kubectl completion bash)
 source <(helm completion bash)
 shopt -s cdspell
+
+
+alias xx="gc sel 3;gc ssh instance-2 'cd t;RATE=100 CONCURRENCY=300 VALUESIZE=1 DURATION=1800 ./bench'"

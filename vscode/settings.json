@@ -10,7 +10,10 @@
     "files.associations": {
         "Vagrantfile": "ruby",
         "*.erb": "ruby",
-        "bash_profile": "shellscript"
+        "bash_profile": "shellscript",
+        ".env": "shellscript",
+        ".env-test": "shellscript"
+
     },
     "editor.fontFamily": "Go Mono, Menlo, Monaco, 'Courier New', monospace",
     "editor.wordWrap": "on",
@@ -18,8 +21,38 @@
         "statusBar.background": "#444444"
     },
     "window.zoomLevel": 0,
-    "workbench.editor.openPositioning": "last",
     "workbench.activityBar.visible": true,
     "explorer.openEditors.visible": 0,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "cSpell.userWords": [
+        "Aerospike",
+        "Bigtable",
+        "Cloudflare",
+        "GRPC",
+        "Panicw",
+        "Warnw",
+        "autoscaling",
+        "dyno",
+        "heroku",
+        "kubernetes",
+        "nginx",
+        "postgres",
+        "sess",
+        "statefulset",
+        "terraform"
+    ],
+    "[helm]": {
+        "editor.tabSize": 2,
+    },
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": false
+    },
+    "telemetry.enableTelemetry": false,
+    "workbench.colorTheme": "Monokai Dimmed",
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "search.location": "sidebar"
 }
