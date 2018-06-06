@@ -131,3 +131,6 @@ shopt -s cdspell
 
 
 alias xx="gc sel 3;gc ssh instance-2 'cd t;RATE=100 CONCURRENCY=300 VALUESIZE=1 DURATION=1800 ./bench'"
+
+# touch test; q && ls -l test
+alias q='read -p "Are you sure(y/N)? " -n 1 -r && [[ "${REPLY}" =~ ^[Yy]$ ]] || (echo "cancelled";exit 1)'
