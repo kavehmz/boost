@@ -37,6 +37,7 @@
         "kubernetes",
         "nginx",
         "postgres",
+        "preemptible",
         "sess",
         "statefulset",
         "terraform"
@@ -51,8 +52,6 @@
     },
     "telemetry.enableTelemetry": false,
     "workbench.colorTheme": "Monokai Dimmed",
-    "gitlens.advanced.messages": {
-        "suppressShowKeyBindingsNotice": true
-    },
-    "search.location": "sidebar"
+    "search.location": "sidebar",
+    "workbench.panel.defaultLocation": "bottom"
 }
