@@ -91,7 +91,7 @@ alias gm="git fetch origin;git merge --no-ff origin/master"
 alias g=git
 _completion_loader git
 complete -o bashdefault -o default -o nospace -F _git g
-alias git="hub"
+# alias git="hub"
 alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 #an alias to show the latest commit for each file. This also shows which files are in git
 alias gl='for i in $(ls -A);do printf "%-32s %s\n" "$i" "$(git log -n1 --oneline $i)";done'
