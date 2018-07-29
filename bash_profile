@@ -108,8 +108,8 @@ alias stime='docker run --rm --privileged dev date -s "@`date +%s`"'
 alias gc="source ~/dev/home/projects/src/github.com/kavehmz/boost/gc.sh"
 alias k8s="kubectl config view -o template --template='{{ index . "'"current-context"'" }}'|sed -e 's/^.*_//g';echo"
 
-alias 22ls='gcloud beta compute firewall-rules list|grep kmz-tmp'
-alias 22open="echo $CLOUDSDK_CORE_PROJECT;echo $CLOUDSDK_CORE_PROJECT|cut -d'-' -f2;gcloud beta compute firewall-rules create kmz-tmp --network $(echo $CLOUDSDK_CORE_PROJECT|cut -d'-' -f2) --allow 22 --source-ranges $(dig +short myip.opendns.com @resolver1.opendns.com)"
+alias 22ls='gcloud beta compute firewall-rules list'
+alias 22open="echo $CLOUDSDK_CORE_PROJECT;q && (gcloud beta compute firewall-rules create kmz-tmp --network $(echo $CLOUDSDK_CORE_PROJECT|cut -d'-' -f2) --allow 22 --source-ranges $(dig +short myip.opendns.com @resolver1.opendns.com))"
 alias 22close='gcloud beta compute firewall-rules delete  kmz-tmp'
 
 mkdir -p ~/.kmz
