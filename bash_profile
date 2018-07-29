@@ -113,6 +113,7 @@ alias 22open="echo $CLOUDSDK_CORE_PROJECT;q && (gcloud beta compute firewall-rul
 alias 22close='gcloud beta compute firewall-rules delete  kmz-tmp'
 
 alias dropbox='docker container ls -a|grep -q drop || (docker run -d --dns=1.1.1.1 --rm --name dropbox -v /opt/dropbox:/home/kaveh dropbox;echo "Dropbox started...")'
+alias dropbox-status='docker exec -ti dropbox sudo -su kaveh python /opt/dropbox.py status'
 
 mkdir -p ~/.kmz
 [ ! -f  ~/.kmz/git-prompt.sh ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh' -o ~/.kmz/git-prompt.sh

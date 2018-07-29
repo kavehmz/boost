@@ -11,5 +11,10 @@ RUN chown kaveh:kaveh /home/kaveh
 RUN cd /home/kaveh && sudo -u kaveh /bin/bash -c 'wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -'
 RUN mv /home/kaveh/.dropbox-dist /opt/dropbox-dist
 
+RUN apt-get install -y python
+RUN wget https://linux.dropbox.com/packages/dropbox.py  -O /opt/dropbox.py
+
+RUN apt-get clean
+
 ENTRYPOINT [ "/bin/bash" ]
 CMD [ "-c",  "sudo -u kaveh /opt/dropbox-dist/dropbox-lnx.x86_64-53.4.67/dropbox;sleep infinity" ]
