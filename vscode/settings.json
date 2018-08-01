@@ -15,7 +15,7 @@
         ".env-test": "shellscript"
 
     },
-    "editor.fontFamily": "Go Mono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "Inconsolata, Source Code Variable, Menlo, Monaco, 'Courier New', monospace",
     "editor.wordWrap": "on",
     "workbench.colorCustomizations": {
         "statusBar.background": "#444444"
