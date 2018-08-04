@@ -115,6 +115,8 @@ alias 22close='gcloud beta compute firewall-rules delete  kmz-tmp'
 alias dropbox='docker container ls -a|grep -q drop || (docker run -d --dns=1.1.1.1 --rm --name dropbox -v /opt/dropbox:/home/kaveh dropbox;echo "Dropbox started...")'
 alias sdropbox='docker exec -ti dropbox sudo -su kaveh python /opt/dropbox.py status'
 
+alias onedrive='docker run -ti --dns=1.1.1.1 --rm --name onedrive -v /opt/onedrive:/home/kaveh onedrive'
+
 alias battey='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
 # utils
 alias usensors='docker run --rm -ti utils sensors'
