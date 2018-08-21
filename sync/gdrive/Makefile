@@ -7,7 +7,7 @@ build:
 	docker build -t drive .
 
 run:
-	docker run --rm --name drive -ti -v /opt/gdrive/ikomitemp/:/gdrive drive -- 
+	docker run --rm --name drive -ti -v /opt/gdrive/ikomitemp/:/gdrive drive --
 
 pull:
 	docker run --rm --name drive -ti -v /opt/gdrive/ikomitemp/:/gdrive drive -- pull -hidden -desktop-links=false
