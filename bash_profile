@@ -116,9 +116,9 @@ alias 22close='gcloud beta compute firewall-rules delete  kmz-tmp'
 alias dropbox='docker container ls -a|grep -q drop || (docker run -d --dns=1.1.1.1 --rm --name dropbox -v /opt/dropbox:/home/kaveh dropbox;echo "Dropbox started...")'
 alias sdropbox='docker exec -ti dropbox sudo -su kaveh python /opt/dropbox.py status'
 
-alias gdpush='docker run --rm --name drive -ti -v /opt/gdrive/ikomitemp/:/gdrive drive -- push -hidden '
-alias gdfetch='docker run --rm --name drive -ti -v /opt/gdrive/ikomitemp/:/gdrive drive -- pull -hidden  -desktop-links=false '
-alias gd='docker run --rm --name drive -ti -v /opt/gdrive/ikomitemp/:/gdrive drive -- '
+# google drive: it is easier if I go to the dir and use make
+alias gd='cdg kaveh/boo/syn/gdrive'
+alias gddir='cd /opt/gdrive/kavehmz/'
 
 alias onedrive='docker run -d -ti --dns=1.1.1.1 --rm --name onedrive -v /opt/onedrive:/home/kaveh onedrive'
 alias battey='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
