@@ -1,4 +1,4 @@
-export GOROOT=~/dev/opt/go/goroot
+GOROOT=~/dev/opt/go/goroot
 export GOPATH=~/dev/home/projects
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:~/dev/opt/hub:~/.local/bin"
 
