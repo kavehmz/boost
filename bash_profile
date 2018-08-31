@@ -1,6 +1,5 @@
-GOROOT=~/dev/opt/go/goroot
 export GOPATH=~/dev/home/projects
-export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:~/dev/opt/hub:~/.local/bin"
+export PATH="$PATH:~/dev/opt/go/goroot/bin:$GOPATH/bin:~/dev/opt/hub:~/.local/bin"
 
 gs() {
 	for i in *; do [ -d $i ] || continue;echo "repo:$i"; (cd "$i"; bash -c "git ${*:1}");done
