@@ -120,9 +120,9 @@ alias sdropbox='docker exec -ti dropbox sudo -su kaveh python /opt/dropbox.py st
 alias gd='cdg kaveh/boo/syn/gdrive'
 alias gddir='cd /opt/gdrive/kavehmz/'
 # for custom runs
-alias gdpush='docker run --rm --name drive -ti -v /opt/gdrive/kavehmz/:/gdrive drive -- push -hidden '
-alias gdpull='docker run --rm --name drive -ti -v /opt/gdrive/kavehmz/:/gdrive drive -- pull -hidden  -desktop-links=false '
-alias gdrun='docker run --rm --name drive -ti -v /opt/gdrive/kavehmz/:/gdrive drive -- '
+alias gdpush='docker run --rm -ti -v /opt/gdrive/kavehmz/:/gdrive drive -- push -hidden -verbose '
+alias gdpull='docker run --rm -ti -v /opt/gdrive/kavehmz/:/gdrive drive -- pull -hidden -verbose -desktop-links=false '
+alias gdrun='docker run --rm -ti -v /opt/gdrive/kavehmz/:/gdrive drive -- '
 
 
 alias onedrive='docker run -d -ti --dns=1.1.1.1 --rm --name onedrive -v /opt/onedrive:/home/kaveh onedrive'
