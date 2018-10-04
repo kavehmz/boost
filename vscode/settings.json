@@ -53,5 +53,9 @@
     "telemetry.enableTelemetry": false,
     "workbench.colorTheme": "Monokai Dimmed",
     "search.location": "sidebar",
-    "workbench.panel.defaultLocation": "bottom"
+    "workbench.panel.defaultLocation": "bottom",
+    "terraform.telemetry.enabled": false,
+    "[terraform]": {
+        "editor.formatOnSave": true
+    }
 }
