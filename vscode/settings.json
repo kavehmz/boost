@@ -57,5 +57,6 @@
     "terraform.telemetry.enabled": false,
     "[terraform]": {
         "editor.formatOnSave": true
-    }
+    },
+    "window.titleBarStyle": "custom"
 }
