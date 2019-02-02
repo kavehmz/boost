@@ -82,8 +82,12 @@ alias update='sudo apt-get update;sudo apt-get upgrade'
 alias ts="perl -e 'use Time::HiRes; while(<>) { print sprintf(\"%-17s \", Time::HiRes::time),"'" "'".\$_;}'"
 alias cdd='cd ~/dev/'
 alias ff="find .| grep -i"
+
 alias e=code
 alias ec='code -r'
+# not for real use!
+alias edock='docker run -d -u`id -u`:`id -g` -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/kaveh:/home/kaveh kavehmz/vscode code -w $PWD'
+alias ecdock='docker run -d -u`id -u`:`id -g` -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/kaveh:/home/kaveh kavehmz/vscode code -r -w $PWD'
 
 alias sa='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_rsa'
 alias gg="git grep -in"
@@ -109,9 +113,6 @@ alias stime='docker run --rm --privileged dev date -s "@`date +%s`"'
 alias gc="source ~/dev/home/projects/src/github.com/kavehmz/boost/gc.sh"
 alias k8s="kubectl config view -o template --template='{{ index . "'"current-context"'" }}'|sed -e 's/^.*_//g';echo"
 
-alias 22ls='gcloud beta compute firewall-rules list'
-alias 22open="echo $CLOUDSDK_CORE_PROJECT;q && (gcloud beta compute firewall-rules create kmz-tmp --network $(echo $CLOUDSDK_CORE_PROJECT|cut -d'-' -f2) --allow 22 --source-ranges $(dig +short myip.opendns.com @resolver1.opendns.com))"
-alias 22close='gcloud beta compute firewall-rules delete  kmz-tmp'
 
 # docker time
 alias dropbox='docker container ls -a|grep -q drop || (docker run -d --dns=1.1.1.1 --rm --name dropbox -v /opt/dropbox:/home/kaveh dropbox;echo "Dropbox started...")'
