@@ -111,7 +111,9 @@ alias dev='docker run --rm -v ~/dev/home:/home -v ~/dev/root:/root -v ~/dev/home
 alias stime='docker run --rm --privileged dev date -s "@`date +%s`"'
 
 alias gc="source ~/dev/home/projects/src/github.com/kavehmz/boost/gc.sh"
-alias k8s="kubectl config view -o template --template='{{ index . "'"current-context"'" }}'|sed -e 's/^.*_//g';echo"
+
+alias k8s="cat ~/.kube/config|grep current-context|cut -d' ' -f2|sed -e 's/^.*_//g'"
+alias k8s-slow="kubectl config view -o template --template='{{ index . "'"current-context"'" }}'|sed -e 's/^.*_//g';echo"
 
 
 # docker time
