@@ -26,5 +26,5 @@
 	rst = reset --hard origin/master
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-[commit]
-	gpgsign = true
+# [commit]
+# 	gpgsign = true
