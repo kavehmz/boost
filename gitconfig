@@ -1,7 +1,7 @@
 [user]
 	name = Kaveh Mousavi Zamani
 	email = kmousavizamani@wayfair.com
-	signingkey = 735D6560B2BF48440105B5714DA89A32A75D8BC2
+	signingkey = 71A4780C1BE9476B4DE976BB69D98D4F689BA9AB
 [color]
 	ui = auto
 	status = auto
@@ -26,5 +26,5 @@
 	rst = reset --hard origin/master
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-# [commit]
-# 	gpgsign = true
+[commit]
+	# gpgsign = true
