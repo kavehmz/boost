@@ -1,9 +1,23 @@
-// Place your key bindings in this file to overwrite the defaults
-// Place your key bindings in this file to overwrite the defaults
+// Place your key bindings in this file to override the defaultsauto[]
 [
     {
-        "key": "shift+ctrl+a",
+        "key": "shift+cmd+a",
         "command": "editor.action.selectHighlights",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+cmd+l",
+        "command": "-editor.action.selectHighlights",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+cmd+l",
+        "command": "editor.action.insertCursorAtEndOfEachLineSelected",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+i",
+        "command": "-editor.action.insertCursorAtEndOfEachLineSelected",
         "when": "editorTextFocus"
     },
     {
@@ -12,62 +26,81 @@
         "when": "editorTextFocus && !editorReadonly"
     },
     {
+        "key": "alt+down",
+        "command": "-editor.action.moveLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
         "key": "ctrl+alt+up",
         "command": "editor.action.moveLinesUpAction",
         "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "shift+ctrl+d",
-        "command": "editor.action.copyLinesDownAction",
-        "when": "editorTextFocus"
+        "key": "alt+up",
+        "command": "-editor.action.moveLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "ctrl+shift+r",
+        "key": "shift+cmd+d",
+        "command": "-workbench.view.debug"
+    },
+    {
+        "key": "shift+cmd+d",
+        "command": "-workbench.view.debug"
+    },
+    {
+        "key": "shift+cmd+d",
+        "command": "editor.action.copyLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+alt+down",
+        "command": "-editor.action.copyLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+cmd+r",
         "command": "workbench.action.showAllSymbols"
     },
     {
-        "key": "ctrl+r",
+        "key": "cmd+t",
+        "command": "-workbench.action.showAllSymbols"
+    },
+    {
+        "key": "cmd+r",
         "command": "workbench.action.gotoSymbol"
     },
     {
-        "key": "ctrl+alt+/",
-        "command": "editor.action.goToDeclaration"
+        "key": "shift+cmd+o",
+        "command": "-workbench.action.gotoSymbol"
     },
     {
         "key": "alt+-",
         "command": "workbench.action.navigateBack"
     },
     {
-        "key": "ctrl+shift+l",
-        "command": "editor.action.insertCursorAtEndOfEachLineSelected",
-        "when": "editorTextFocus"
+        "key": "ctrl+-",
+        "command": "-workbench.action.navigateBack"
     },
     {
-        "key": "ctrl+p",
-        "command": "workbench.action.quickOpen"
+        "key": "shift+cmd+right",
+        "command": "-cursorEndSelect",
+        "when": "textInputFocus"
     },
     {
-        "key": "shift+ctrl+p",
-        "command": "workbench.action.showCommands"
+        "key": "shift+cmd+right",
+        "command": "workbench.action.nextEditor"
     },
     {
-        "key": "ctrl+g",
-        "command": "editor.action.nextMatchFindAction",
-        "when": "editorFocus"
+        "key": "shift+cmd+]",
+        "command": "-workbench.action.nextEditor"
     },
     {
-        "key": "shift+ctrl+g",
-        "command": "editor.action.previousMatchFindAction",
-        "when": "editorFocus"
+        "key": "shift+cmd+left",
+        "command": "workbench.action.previousEditor"
     },
     {
-        "key": "f3",
-        "command": "-editor.action.nextMatchFindAction",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+shift+c",
-        "command": "-workbench.action.terminal.openNativeConsole",
-        "when": "!terminalFocus"
+        "key": "shift+cmd+[",
+        "command": "-workbench.action.previousEditor"
     }
 ]

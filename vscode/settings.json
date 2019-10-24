@@ -60,13 +60,12 @@
     },
     "window.titleBarStyle": "custom",
     "workbench.startupEditor": "newUntitledFile",
-    "vs-kubernetes": {
-        "vs-kubernetes.minikube-path": "/home/kaveh/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
-        "vs-kubernetes.draft-path": "/home/kaveh/.vs-kubernetes/tools/draft/linux-amd64/draft"
-    },
     "editor.renderWhitespace": "all",
     "go.useLanguageServer": true,
     "gitlens.hovers.currentLine.over": "line",
     "gitlens.codeLens.enabled": false,
-    "gitlens.statusBar.enabled": false
+    "gitlens.statusBar.enabled": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "puppet.installDirectory": "/opt/puppetlabs/",
+    "terminal.integrated.shell.osx": "/bin/bash"
 }

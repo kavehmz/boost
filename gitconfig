@@ -1,13 +1,13 @@
 [user]
 	name = Kaveh Mousavi Zamani
-	email = kaveh@fitanalytics.com
+	email = kmousavizamani@wayfair.com
 	signingkey = 735D6560B2BF48440105B5714DA89A32A75D8BC2
 [color]
 	ui = auto
 	status = auto
 [core]
 	excludesfile = /home/kaveh/.gitignore_global
-	editor = 'gedit'
+	editor = 'code'
 [alias]
 	a = add
 	b = branch

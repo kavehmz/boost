@@ -1,12 +1,13 @@
+export SHELL=/usr/local/bin/bash
 export GOROOT=~/dev/opt/go/goroot
 export GOPATH=~/dev/home/projects
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:~/.local/bin"
 
 # (cdg k/bo) => (cdg; cd k*/bo*)
 cdg() {
-    cd ~/dev/home/projects/src/github.com
+    cd ~/dev/home/projects/src/
     local WDIR=$(echo $1|sed 's/\//*\/*/g'|sed 's/-/*/g'|sed 's/$/*/')
-    [ "$1" != "" ] && cd $(ls -d $WDIR|head -n1)
+    [ "$1" != "" ] && cd $(ls -d git*/$WDIR|head -n1)
 }
 
 alias ts="perl -e 'use Time::HiRes; while(<>) { print sprintf(\"%-17s \", Time::HiRes::time),"'" "'".\$_;}'"
@@ -56,9 +57,24 @@ complete -o default -o nospace -F _git g
 
 #touch ~/.bash_sessions_disable
 # on mac this tends to accumulate and is make bash load slower
-find ~/.bash_sessions/ -mtime +3 -type f -delete
+find ~/.bash_sessions/ -mtime +1 -type f -delete
 
 shopt -s cdspell
 
 # https://developer.github.com/guides/using-ssh-agent-forwarding/
-/usr/bin/ssh-add -K  ~/.ssh/id_rsa
+[ -z "$SSH_AUTH_SOCK" ] && /usr/bin/ssh-add -K  ~/.ssh/id_rsa
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/dev/opt/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/dev/opt/google-cloud-sdk/path.bash.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/dev/opt/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/dev/opt/google-cloud-sdk/completion.bash.inc"; fi
+
+[ -f "$HOME/.local/completion.kubectl.inc" ] || kubectl completion bash > "$HOME/.local/completion.kubectl.inc"
+source "$HOME/.local/completion.kubectl.inc"
+
+source /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
+
+source /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
+source /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
