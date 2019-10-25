@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+docker run -ti --rm -v $HOME:$HOME -v $HOME/.helm:/root/.helm -v $HOME/.kube:/root/.kube -v $HOME/.bash_history:/root/.bash_history --workdir $PWD puppet-lint puppet-lint -- --fail-on-warnings --with-context --no-selector_inside_resource-check --no-autoloader_layout-check --no-class_inherits_from_params_class-check --no-variable_is_lowercase-check --no-80chars-check --no-140chars-check --no-arrow_on_right_operand_line-check --no-trailing_whitespace-check --no-2sp_soft_tabs-check --no-hard_tabs-check --error-level error .
