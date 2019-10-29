@@ -89,3 +89,5 @@ source /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-compl
 
 source /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
 source /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
+
+source ~/off/office_bash_profile.sh
