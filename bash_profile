@@ -60,7 +60,10 @@ mkdir -p ~/.kmz
 
 [ ! -f  ~/.kmz/git-prompt.sh ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh' -o ~/.kmz/git-prompt.sh
 source ~/.kmz/git-prompt.sh
-PS1='[\u@kmz \W$(__git_ps1 " (%s)")]\$ '
+
+[ ! -f ~/.kmz/kube-ps1.sh.sh ] && curl 'https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh' -o ~/.kmz/kube-ps1.sh.sh
+source ~/.kmz/kube-ps1.sh.sh
+PS1='[\u@kmz \W $(kube_ps1)$(__git_ps1 " (%s)")]\$ '
 
 [ ! -f  ~/.kmz/git-completion.bash ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash' -o ~/.kmz/git-completion.bash
 source ~/.kmz/git-completion.bash
