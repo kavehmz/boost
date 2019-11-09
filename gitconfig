@@ -1,6 +1,7 @@
 [user]
 	name = Kaveh Mousavi Zamani
-	email = kmousavizamani@wayfair.com
+	# email = kmousavizamani@wayfair.com
+	email = kavehmz@gmail.com
 	signingkey = 71A4780C1BE9476B4DE976BB69D98D4F689BA9AB
 [color]
 	ui = auto
