@@ -34,5 +34,5 @@
 [commit]
 	# gpgsign = true
 
-[includeIf "gitdir:~/dev/home/projects/src/github.csnzoo.com/"]
+[includeIf "gitdir:~/dev/home/projects/src/github.*.com/"]
   path = ~/off/gitconfig
