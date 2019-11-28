@@ -1,6 +1,5 @@
 [user]
 	name = Kaveh Mousavi Zamani
-	# email = kmousavizamani@wayfair.com
 	email = kavehmz@gmail.com
 	signingkey = 71A4780C1BE9476B4DE976BB69D98D4F689BA9AB
 [color]
@@ -9,6 +8,10 @@
 [core]
 	excludesfile = /home/kaveh/.gitignore_global
 	editor = 'code'
+
+[include]
+  path = ~/.kmz/gitalias.txt
+
 [alias]
 	a = add
 	b = branch
@@ -25,7 +28,11 @@
 	pr = pull-request
 	pp = push kavehmz HEAD
 	rst = reset --hard origin/master
+
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [commit]
 	# gpgsign = true
+
+[includeIf "gitdir:~/dev/home/projects/src/github.csnzoo.com/"]
+  path = ~/off/gitconfig

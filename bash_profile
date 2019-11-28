@@ -69,6 +69,8 @@ PS1='[\u@kmz \W $(kube_ps1)$(__git_ps1 " (%s)")]\$ '
 source ~/.kmz/git-completion.bash
 complete -o default -o nospace -F _git g
 
+[ ! -f  ~/.kmz/gitalias.txt ] && curl https://raw.githubusercontent.com/GitAlias/gitalias/master/gitalias.txt -o ~/.kmz/gitalias.txt
+
 #touch ~/.bash_sessions_disable
 # on mac this tends to accumulate and is make bash load slower
 find ~/.bash_sessions/ -mtime +1 -type f -delete
@@ -76,7 +78,7 @@ find ~/.bash_sessions/ -mtime +1 -type f -delete
 shopt -s cdspell
 
 # https://developer.github.com/guides/using-ssh-agent-forwarding/
-[ -z "$SSH_AUTH_SOCK" ] && /usr/bin/ssh-add -K  ~/.ssh/id_rsa
+/usr/bin/ssh-add -K  ~/.ssh/id_rsa
 
 
 # The next line updates PATH for the Google Cloud SDK.
