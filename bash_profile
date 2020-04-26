@@ -36,7 +36,8 @@ alias gl='for i in $(ls -A);do printf "%-32s %s\n" "$i" "$(git log -n1 --oneline
 alias gor="go run"
 
 alias dcls='docker ps -a |tail -n +2|tr -s " "|cut -d" " -f 1|xargs docker rm -f'
-alias dclsi='docker images|tail -n +2|tr -s " "|grep "<none>"|cut -d" " -f 3|xargs docker rmi -f'
+alias dclsi='docker images|tail -n +2|tr -s " "|cut -d" " -f 3|xargs docker rmi -f'
+# alias dclsi='docker images|tail -n +2|tr -s " "|grep "<none>"|cut -d" " -f 3|xargs docker rmi -f'
 alias dbuild='cd ~/dev/docker;docker build -t dev:latest --rm .'
 alias dev='docker run --rm -v ~/dev/home:/home -v ~/dev/root:/root -v ~/dev/home/projects/bin-linux:/home/projects/bin -it dev /bin/bash --login'
 alias stime='docker run --rm --privileged dev date -s "@`date +%s`"'
@@ -56,6 +57,8 @@ alias gdrun='docker run --rm -ti -v /opt/gdrive/kavehmz/:/gdrive kavehmz/drive -
 # touch test; q && ls -l test
 alias q='read -p "Are you sure(y/N)? " -n 1 -r && [[ "${REPLY}" =~ ^[Yy]$ ]] || (echo "cancelled";exit 1)'
 
+alias psx="ps -xo pid,ppid,stat,command"
+
 mkdir -p ~/.kmz
 
 [ ! -f  ~/.kmz/git-prompt.sh ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh' -o ~/.kmz/git-prompt.sh
@@ -64,6 +67,10 @@ source ~/.kmz/git-prompt.sh
 [ ! -f ~/.kmz/kube-ps1.sh.sh ] && curl 'https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh' -o ~/.kmz/kube-ps1.sh.sh
 source ~/.kmz/kube-ps1.sh.sh
 PS1='[\u@kmz \W $(kube_ps1)$(__git_ps1 " (%s)")]\$ '
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 
 [ ! -f  ~/.kmz/git-completion.bash ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash' -o ~/.kmz/git-completion.bash
 source ~/.kmz/git-completion.bash
@@ -92,7 +99,8 @@ source "$HOME/.local/completion.kubectl.inc"
 
 source /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
 
-source /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
 source /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
 
 source ~/off/office_bash_profile.sh
+
+complete -C /usr/local/bin/vault vault

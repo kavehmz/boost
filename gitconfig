@@ -36,3 +36,6 @@
 
 [includeIf "gitdir:~/dev/home/projects/src/github.*.com/"]
   path = ~/off/gitconfig
+
+[includeIf "gitdir:~/codebase/"]
+  path = ~/off/gitconfig
