@@ -29,11 +29,13 @@
         "Bigtable",
         "Cloudflare",
         "GRPC",
+        "Kube",
         "Panicw",
         "Warnw",
         "autoscaling",
         "dyno",
         "heroku",
+        "kubectl",
         "kubernetes",
         "nginx",
         "postgres",
@@ -52,11 +54,10 @@
     },
     "telemetry.enableTelemetry": false,
     "workbench.colorTheme": "Monokai Dimmed",
-    "search.location": "sidebar",
     "workbench.panel.defaultLocation": "bottom",
     "terraform.telemetry.enabled": false,
     "[terraform]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": false
     },
     "window.titleBarStyle": "custom",
     "workbench.startupEditor": "newUntitledFile",
@@ -67,5 +68,6 @@
     "gitlens.statusBar.enabled": false,
     "editor.multiCursorModifier": "ctrlCmd",
     "puppet.installDirectory": "/opt/puppetlabs/",
-    "terminal.integrated.shell.osx": "/bin/bash"
+    "terminal.integrated.shell.osx": "/bin/bash",
+    "workbench.editor.focusRecentEditorAfterClose": false
 }
