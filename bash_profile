@@ -39,7 +39,6 @@ alias dcls='docker ps -a |tail -n +2|tr -s " "|cut -d" " -f 1|xargs docker rm -f
 alias dclsi='docker images|tail -n +2|tr -s " "|cut -d" " -f 3|xargs docker rmi -f'
 # alias dclsi='docker images|tail -n +2|tr -s " "|grep "<none>"|cut -d" " -f 3|xargs docker rmi -f'
 alias dbuild='cd ~/dev/docker;docker build -t dev:latest --rm .'
-alias dev='docker run --rm -v ~/dev/home:/home -v ~/dev/root:/root -v ~/dev/home/projects/bin-linux:/home/projects/bin -it dev /bin/bash --login'
 alias stime='docker run --rm --privileged dev date -s "@`date +%s`"'
 
 alias gc="source ~/dev/home/projects/src/github.com/kavehmz/boost/gc.sh"
@@ -63,14 +62,8 @@ mkdir -p ~/.kmz
 
 [ ! -f  ~/.kmz/git-prompt.sh ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh' -o ~/.kmz/git-prompt.sh
 source ~/.kmz/git-prompt.sh
+PS1='[\u@kmz \W $(__git_ps1 " (%s)")]\$ '
 
-[ ! -f ~/.kmz/kube-ps1.sh.sh ] && curl 'https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh' -o ~/.kmz/kube-ps1.sh.sh
-source ~/.kmz/kube-ps1.sh.sh
-PS1='[\u@kmz \W $(kube_ps1)$(__git_ps1 " (%s)")]\$ '
-
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
 
 [ ! -f  ~/.kmz/git-completion.bash ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash' -o ~/.kmz/git-completion.bash
 source ~/.kmz/git-completion.bash
@@ -86,7 +79,6 @@ shopt -s cdspell
 
 # https://developer.github.com/guides/using-ssh-agent-forwarding/
 /usr/bin/ssh-add -K  ~/.ssh/id_rsa
-
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/dev/opt/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/dev/opt/google-cloud-sdk/path.bash.inc"; fi
@@ -104,3 +96,5 @@ source /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
 source ~/off/office_bash_profile.sh
 
 complete -C /usr/local/bin/vault vault
+
+export HISTCONTROL=ignorespace

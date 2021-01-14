@@ -28,6 +28,7 @@
 	pr = pull-request
 	pp = push kavehmz HEAD
 	rst = reset --hard origin/master
+	mrst = reset --hard origin/main
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
