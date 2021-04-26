@@ -48,7 +48,6 @@ PS1='[\u@kmz \W $(__git_ps1 " (%s)")]\$ '
 
 [ ! -f  ~/.kmz/git-completion.bash ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash' -o ~/.kmz/git-completion.bash
 source ~/.kmz/git-completion.bash
-complete -o default -o nospace -F _git g
 
 #touch ~/.bash_sessions_disable
 # on mac this tends to accumulate and is make bash load slower
