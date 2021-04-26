@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-docker run -ti --rm -v $HOME:$HOME -v $HOME/.bash_history:/root/.bash_history --workdir $PWD -v ~/.eyaml:/root/.eyaml --entrypoint /usr/local/bundle/bin/eyaml hiera "$@"

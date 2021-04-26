@@ -9,9 +9,6 @@
 	excludesfile = /home/kaveh/.gitignore_global
 	editor = 'code'
 
-[include]
-  path = ~/.kmz/gitalias.txt
-
 [alias]
 	a = add
 	b = branch
@@ -32,11 +29,3 @@
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-[commit]
-	# gpgsign = true
-
-[includeIf "gitdir:~/dev/home/projects/src/github.*.com/"]
-  path = ~/off/gitconfig
-
-[includeIf "gitdir:~/codebase/"]
-  path = ~/off/gitconfig

@@ -7,12 +7,10 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
   SOURCE="$(readlink "$SOURCE")"
   [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
 done
-SCRIPTDIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
-export SHELL=/usr/local/bin/bash
 export GOROOT=~/dev/opt/go/goroot
 export GOPATH=~/dev/home/projects
-export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:~/.local/bin:$SCRIPTDIR/bin"
+export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 
 # (cdg k/bo) => (cdg; cd k*/bo*)
 cdg() {
@@ -33,30 +31,13 @@ alias g=git
 #an alias to show the latest commit for each file. This also shows which files are in git
 alias gl='for i in $(ls -A);do printf "%-32s %s\n" "$i" "$(git log -n1 --oneline $i)";done'
 
-alias gor="go run"
-
 alias dcls='docker ps -a |tail -n +2|tr -s " "|cut -d" " -f 1|xargs docker rm -f'
 alias dclsi='docker images|tail -n +2|tr -s " "|cut -d" " -f 3|xargs docker rmi -f'
-# alias dclsi='docker images|tail -n +2|tr -s " "|grep "<none>"|cut -d" " -f 3|xargs docker rmi -f'
-alias dbuild='cd ~/dev/docker;docker build -t dev:latest --rm .'
-alias stime='docker run --rm --privileged dev date -s "@`date +%s`"'
-
-alias gc="source ~/dev/home/projects/src/github.com/kavehmz/boost/gc.sh"
 
 alias k8s="cat ~/.kube/config|grep current-context|cut -d' ' -f2|sed -e 's/^.*_//g'"
-alias k8s-slow="kubectl config view -o template --template='{{ index . "'"current-context"'" }}'|sed -e 's/^.*_//g';echo"
-
-# google drive: it is easier if I go to the dir and use make
-alias gddir='cd /opt/gdrive/kavehmz/'
-# for custom runs
-alias gdpush='docker run --rm -ti -v /opt/gdrive/kavehmz/:/gdrive kavehmz/drive -- push -hidden -verbose '
-alias gdpull='docker run --rm -ti -v /opt/gdrive/kavehmz/:/gdrive kavehmz/drive -- pull -hidden -verbose -desktop-links=false '
-alias gdrun='docker run --rm -ti -v /opt/gdrive/kavehmz/:/gdrive kavehmz/drive -- '
 
 # touch test; q && ls -l test
 alias q='read -p "Are you sure(y/N)? " -n 1 -r && [[ "${REPLY}" =~ ^[Yy]$ ]] || (echo "cancelled";exit 1)'
-
-alias psx="ps -xo pid,ppid,stat,command"
 
 mkdir -p ~/.kmz
 
@@ -69,16 +50,11 @@ PS1='[\u@kmz \W $(__git_ps1 " (%s)")]\$ '
 source ~/.kmz/git-completion.bash
 complete -o default -o nospace -F _git g
 
-[ ! -f  ~/.kmz/gitalias.txt ] && curl https://raw.githubusercontent.com/GitAlias/gitalias/master/gitalias.txt -o ~/.kmz/gitalias.txt
-
 #touch ~/.bash_sessions_disable
 # on mac this tends to accumulate and is make bash load slower
 find ~/.bash_sessions/ -mtime +1 -type f -delete
 
 shopt -s cdspell
-
-# https://developer.github.com/guides/using-ssh-agent-forwarding/
-/usr/bin/ssh-add -K  ~/.ssh/id_rsa
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/dev/opt/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/dev/opt/google-cloud-sdk/path.bash.inc"; fi
@@ -86,15 +62,11 @@ if [ -f "$HOME/dev/opt/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/dev/opt/
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/dev/opt/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/dev/opt/google-cloud-sdk/completion.bash.inc"; fi
 
-[ -f "$HOME/.local/completion.kubectl.inc" ] || kubectl completion bash > "$HOME/.local/completion.kubectl.inc"
-source "$HOME/.local/completion.kubectl.inc"
+[ -f "$HOME/.local/completion.kubectl.inc" ] || ( command -v kubectl && kubectl completion bash > "$HOME/.local/completion.kubectl.inc" )
+[ -f "$HOME/.local/completion.kubectl.inc" ] && source "$HOME/.local/completion.kubectl.inc"
 
-source /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
-
-source /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
-
-source ~/off/office_bash_profile.sh
-
-complete -C /usr/local/bin/vault vault
+[ -f /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion ] && source /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
+[ -f /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion ] && source /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
 
 export HISTCONTROL=ignorespace
+export BASH_SILENCE_DEPRECATION_WARNING=1
