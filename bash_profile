@@ -39,6 +39,8 @@ alias k8s="cat ~/.kube/config|grep current-context|cut -d' ' -f2|sed -e 's/^.*_/
 # touch test; q && ls -l test
 alias q='read -p "Are you sure(y/N)? " -n 1 -r && [[ "${REPLY}" =~ ^[Yy]$ ]] || (echo "cancelled";exit 1)'
 
+alias gsync='(cd "/Volumes/Data/Google Drive/" && cd ~/Google\ Drive && for i in */;do echo $i;rsync -av --delete "$i" "/Volumes/Data/Google Drive/$i" ;done)'
+
 mkdir -p ~/.kmz
 
 [ ! -f  ~/.kmz/git-prompt.sh ] && curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh' -o ~/.kmz/git-prompt.sh
