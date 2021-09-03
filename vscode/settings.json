@@ -20,7 +20,6 @@
     "workbench.colorCustomizations": {
         "statusBar.background": "#444444"
     },
-    "window.zoomLevel": 0,
     "workbench.activityBar.visible": true,
     "explorer.openEditors.visible": 0,
     "editor.minimap.enabled": false,
@@ -69,5 +68,6 @@
     "editor.multiCursorModifier": "ctrlCmd",
     "puppet.installDirectory": "/opt/puppetlabs/",
     "terminal.integrated.shell.osx": "/bin/bash",
-    "workbench.editor.focusRecentEditorAfterClose": false
+    "workbench.editor.focusRecentEditorAfterClose": false,
+    "editor.bracketPairColorization.enabled": true
 }
