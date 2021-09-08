@@ -1,7 +1,7 @@
 [user]
 	name = Kaveh Mousavi Zamani
 	email = kavehmz@gmail.com
-	signingkey = 71A4780C1BE9476B4DE976BB69D98D4F689BA9AB
+	signingkey = 16CEC050A75827655F38F4D78D31C840C1AC9736
 [color]
 	ui = auto
 	status = auto
@@ -29,3 +29,6 @@
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+
+[commit]
+	gpgsign = true
