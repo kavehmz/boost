@@ -15,6 +15,16 @@ cdg() {
     fi
 }
 
+kc() {
+  [ "$1" = "c" -o "$1" = ""  ] && kubectl config current-context
+  [ "$1" = "g" ] && kubectl config get-contexts --no-headers -o name|cat -n
+  if [ "$1" = "s" ]
+  then
+    local LINE=$2
+    kubectl config use-context $(kubectl config get-contexts --no-headers -o name|head -n $LINE|tail -1)
+  fi
+}
+
 alias ts="perl -e 'use Time::HiRes; while(<>) { print sprintf(\"%-17s \", Time::HiRes::time),"'" "'".\$_;}'"
 alias cdd='cd ~/dev/'
 alias ff="find .| grep -i"
@@ -23,16 +33,15 @@ alias e=code
 alias ec='code -r'
 alias gg="git grep -in"
 alias g=git
-#an alias to show the latest commit for each file. This also shows which files are in git
+  #an alias to show the latest commit for each file. This also shows which files are in git
 alias gl='for i in $(ls -A);do printf "%-32s %s\n" "$i" "$(git log -n1 --oneline $i)";done'
 alias dcls='docker ps -a |tail -n +2|tr -s " "|cut -d" " -f 1|xargs docker rm -f'
 alias dclsi='docker images|tail -n +2|tr -s " "|cut -d" " -f 3|xargs docker rmi -f'
-alias k8s="cat ~/.kube/config|grep current-context|cut -d' ' -f2|sed -e 's/^.*_//g'"
 alias psync='rsync --delete -rva ./ admin@dev0:~/remote/'
 alias z='zsh'
-# touch test; q && ls -l test
 alias q='read -p "Are you sure(y/N)? " -n 1 -r && [[ "${REPLY}" =~ ^[Yy]$ ]] || (echo "cancelled";exit 1)'
 alias gsync='(cd "/Volumes/Data/Google Drive/" && cd ~/Google\ Drive && for i in */;do echo $i;rsync -av --delete "$i" "/Volumes/Data/Google Drive/$i" ;done)'
+
 
 if [ -n "$BASH_VERSION" ]
 then
