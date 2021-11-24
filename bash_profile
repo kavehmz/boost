@@ -3,6 +3,7 @@
 export GOROOT=~/dev/opt/go/goroot
 export GOPATH=~/dev/home/projects
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
+export PAGER=''
 
 # (cdg k/bo) => (cd github.com/kavehmz/boost)
 cdg() {
@@ -25,6 +26,26 @@ kc() {
   fi
 }
 
+clonegh() {
+  # kavehmz/boost or https://github.com/kavehmz/boost
+  local REPO_URL=$(echo $1|sed -e 's/http\(s\)*\(:\)*\(\/\/\)//g')
+  local REPO_HOST=$(echo "$REPO_URL"|cut -d'/' -f 1)
+  local REPO_OWNER=$(echo "$REPO_URL"|cut -d'/' -f 2)
+  local REPO_NAME=$(echo "$REPO_URL"|cut -d'/' -f 3)
+
+  echo "Cloning [$REPO_URL] in [~/dev/home/projects/src/$REPO_HOST/$REPO_OWNER/$REPO_NAME]"
+  local YESNO="n"
+  vared -p 'Are you sure(y/N)?  ' -c YESNO
+  if [[ "${YESNO}" =~ ^[Yy]$ ]]
+  then
+    cd ~/dev/home/projects/src/$REPO_HOST && \
+    mkdir -p $REPO_OWNER && \
+    git clone git@$REPO_HOST:$REPO_OWNER/$REPO_NAME.git && \
+    cd $REPO_NAME
+  fi
+
+}
+
 alias ts="perl -e 'use Time::HiRes; while(<>) { print sprintf(\"%-17s \", Time::HiRes::time),"'" "'".\$_;}'"
 alias cdd='cd ~/dev/'
 alias ff="find .| grep -i"
@@ -41,7 +62,6 @@ alias psync='rsync --delete -rva ./ admin@dev0:~/remote/'
 alias z='zsh'
 alias q='read -p "Are you sure(y/N)? " -n 1 -r && [[ "${REPLY}" =~ ^[Yy]$ ]] || (echo "cancelled";exit 1)'
 alias gsync='(cd "/Volumes/Data/Google Drive/" && cd ~/Google\ Drive && for i in */;do echo $i;rsync -av --delete "$i" "/Volumes/Data/Google Drive/$i" ;done)'
-
 
 if [ -n "$BASH_VERSION" ]
 then
