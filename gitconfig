@@ -32,3 +32,5 @@
 
 [commit]
 	gpgsign = true
+[gpg]
+# 	program = docker_gpg

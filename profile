@@ -1,6 +1,6 @@
-export GOROOT=~/dev/opt/go/goroot
-export GOPATH=~/dev/home/projects
-export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
+export GOROOT=$HOME/dev/opt/go/goroot
+export GOPATH=$HOME/dev/home/projects
+export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/Office/bin"
 export PAGER=''
 
 # (cdg k/bo) => (cd github.com/kavehmz/boost)
@@ -26,7 +26,12 @@ kc() {
 
 clonegh() {
   # kavehmz/boost or https://github.com/kavehmz/boost
+  # or  git@github.com:kavehmz/boost.git
   local REPO_URL=$(echo $1|sed -e 's/http\(s\)*\(:\)*\(\/\/\)//g')
+  REPO_URL=$(echo $REPO_URL|sed -e 's/git\@//g')
+  REPO_URL=$(echo $REPO_URL|sed -e 's/.git$//g')
+  REPO_URL=$(echo $REPO_URL|sed -e 's/:/\//g')
+
   local REPO_HOST=$(echo "$REPO_URL"|cut -d'/' -f 1)
   local REPO_OWNER=$(echo "$REPO_URL"|cut -d'/' -f 2)
   local REPO_NAME=$(echo "$REPO_URL"|cut -d'/' -f 3)
@@ -36,9 +41,10 @@ clonegh() {
   vared -p 'Are you sure(y/N)?  ' -c YESNO
   if [[ "${YESNO}" =~ ^[Yy]$ ]]
   then
-    cd ~/dev/home/projects/src/$REPO_HOST && \
-    mkdir -p $REPO_OWNER && \
-    git clone git@$REPO_HOST:$REPO_OWNER/$REPO_NAME.git && \
+    cd ~/dev/home/projects/src/$REPO_HOST
+    mkdir -p $REPO_OWNER
+    cd $REPO_OWNER
+    git clone git@$REPO_HOST:$REPO_OWNER/$REPO_NAME.git
     cd $REPO_NAME
   fi
 
@@ -61,6 +67,7 @@ alias z='zsh'
 alias q='read -p "Are you sure(y/N)? " -n 1 -r && [[ "${REPLY}" =~ ^[Yy]$ ]] || (echo "cancelled";exit 1)'
 alias gsync='(cd "/Volumes/Data/Google Drive/" && cd ~/Google\ Drive && for i in */;do echo $i;rsync -av --delete "$i" "/Volumes/Data/Google Drive/$i" ;done)'
 alias kubens='kubectl get ns'
+alias h=history
 
 if [ -n "$BASH_VERSION" ]
 then

@@ -1,2 +1,2 @@
-#!/bin/bash
-docker run -v ~/dev/home:/home -v ~/dev/root:/root -i dev gpg "$@"
+echo  "$@" > /tmp/in
+docker run --name gpg -v ~/.gnupg:/root/.gnupg -i opt gpg "$@" > /tmp/out

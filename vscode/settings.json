@@ -52,7 +52,7 @@
         "editor.autoIndent": false
     },
     "telemetry.enableTelemetry": false,
-    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.colorTheme": "Monokai",
     "workbench.panel.defaultLocation": "bottom",
     "terraform.telemetry.enabled": false,
     "[terraform]": {
