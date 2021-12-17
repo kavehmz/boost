@@ -50,6 +50,15 @@ clonegh() {
 
 }
 
+watch() {
+  local L="$@"
+  [ -z "$L" ] && read L
+  while true
+  do
+    eval $L
+  done
+}
+
 alias ts="perl -e 'use Time::HiRes; while(<>) { print sprintf(\"%-17s \", Time::HiRes::time),"'" "'".\$_;}'"
 alias cdd='cd ~/dev/'
 alias ff="find .| grep -i"

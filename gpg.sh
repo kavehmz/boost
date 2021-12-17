@@ -1,1 +1,1 @@
-docker run --rm --name gpg -v ~/.gnupg:/root/.gnupg -i opt gpg "$@"
+docker run --rm --name gpg -v /var/folders/sq:/var/folders/sq -v ~/.gnupg:/root/.gnupg -i opt gpg "$@"
