@@ -2,12 +2,16 @@
 	name = Kaveh Mousavi Zamani
 	email = kavehmz@gmail.com
 	signingkey = 16CEC050A75827655F38F4D78D31C840C1AC9736
+
+[includeIf "gitdir:/Users/kaveh/dev/home/projects/src/github.com/regentmarkets/"]
+    path = .gitconfig.work
+
 [color]
 	ui = auto
 	status = auto
 [core]
 	excludesfile = /home/kaveh/.gitignore_global
-	editor = 'code'
+	editor = 'vim'
 
 [alias]
 	a = add
@@ -33,4 +37,4 @@
 [commit]
 	gpgsign = true
 [gpg]
-# 	program = docker_gpg
+	program = /Users/kaveh/dev/home/projects/src/github.com/kavehmz/boost/gpg.sh

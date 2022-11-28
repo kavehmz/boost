@@ -10,7 +10,7 @@ cdg() {
     then
       local WDIR=$(echo $1|sed 's/\//**\/**/g'|sed 's/-/**/g'|sed 's/$/**/')
       [ -n "$BASH_VERSION" ] && cd g**/**$WDIR
-      [ -n "$ZSH_VERSION" ] && cd g**/**$~WDIR
+      [ -n "$ZSH_VERSION" ] && cd $(ls -d g**/**$~WDIR|head -n1)
     fi
 }
 

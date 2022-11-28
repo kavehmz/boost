@@ -12,8 +12,8 @@
         "*.erb": "ruby",
         "bash_profile": "shellscript",
         ".env": "shellscript",
-        ".env-test": "shellscript"
-
+        ".env-test": "shellscript",
+        "*.tf": "terraform"
     },
     "editor.fontFamily": "Inconsolata, Source Code Variable, Menlo, Monaco, 'Courier New', monospace",
     "editor.wordWrap": "on",
@@ -49,14 +49,14 @@
     "[yaml]": {
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
-        "editor.autoIndent": false
+        "editor.autoIndent": "advanced"
     },
     "telemetry.enableTelemetry": false,
     "workbench.colorTheme": "Monokai",
     "workbench.panel.defaultLocation": "bottom",
     "terraform.telemetry.enabled": false,
     "[terraform]": {
-        "editor.formatOnSave": false
+        "editor.formatOnSave": true
     },
     "window.titleBarStyle": "custom",
     "workbench.startupEditor": "newUntitledFile",
@@ -69,5 +69,10 @@
     "puppet.installDirectory": "/opt/puppetlabs/",
     "terminal.integrated.shell.osx": "/bin/bash",
     "workbench.editor.focusRecentEditorAfterClose": false,
-    "editor.bracketPairColorization.enabled": true
+    "editor.bracketPairColorization.enabled": true,
+    "redhat.telemetry.enabled": false,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "go.toolsManagement.autoUpdate": true
 }
