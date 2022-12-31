@@ -25,6 +25,7 @@
 	l = log
 	m = merge --no-ff
 	p = push origin HEAD
+	r = restore --staged
 	s = status
 	pr = pull-request
 	pp = push kavehmz HEAD

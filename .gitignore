@@ -1,8 +1,1 @@
-*.sublime-workspace
-*.sublime-project
-sublime_user/Package Control*
-*license*
-sublime_user/SublimeGit*
-sublime_user/GoSublime*
-sublime_user/YAML*
-
+.*
